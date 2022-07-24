@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Health_Care</string>
+<!--    <string name="already_hav">already have an acount? login</string>-->
+
+    <string name="Dont_Hav_Ac"><font color="#000000">Don't have an account?</font> <font
+        color="#1847b5">sign in</font></string>
+    <string name="Already_Hav_Ac"><font color="#000000">Already have an account?</font> <font
+        color="#1847b5">login</font></string>
+    <string name="welcome">Welcome</string>
+    <string name="create_acco">Create Account</string>
+    <string name="Login">login</string>
 </resources>

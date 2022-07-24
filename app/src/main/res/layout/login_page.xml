@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToOutline="true"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="163dp"
+        android:layout_marginTop="319dp"
+        android:layout_marginEnd="55dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center_horizontal|top"
+        android:text="@string/welcome"
+        android:textAppearance="@style/welcome" />
+
+    <TextView
+        android:id="@+id/login_username_id"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="61dp"
+        android:background="@drawable/text_back_3"
+        android:hint="username"
+        android:textAlignment="textStart" />
+
+
+    <TextView
+        android:id="@+id/login_password_id"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="469dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/text_back_3"
+        android:hint="password"
+        android:textAlignment="textStart" />
+
+    <View
+        android:layout_width="351dp"
+        android:layout_height="338dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="-117dp"
+        android:background="@drawable/circle2" />
+
+    <View
+        android:layout_width="360dp"
+        android:layout_height="353dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-122dp"
+        android:layout_marginTop="-13dp"
+        android:background="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/already_hav"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="592dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="117dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center_horizontal|top"
+        android:text="@string/Dont_Hav_Ac"
+        android:textAppearance="@style/Dont_Hav_Ac"
+        android:textIsSelectable="true" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button_id"
+        android:layout_width="126dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="151dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>
