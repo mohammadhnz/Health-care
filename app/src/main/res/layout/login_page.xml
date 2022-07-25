@@ -22,7 +22,7 @@
         android:text="@string/welcome"
         android:textAppearance="@style/welcome" />
 
-    <TextView
+    <EditText
         android:id="@+id/login_username_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:textAlignment="textStart" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/login_password_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"

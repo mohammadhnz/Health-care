@@ -2,10 +2,13 @@
     <string name="app_name">Health_Care</string>
 <!--    <string name="already_hav">already have an acount? login</string>-->
 
-    <string name="Dont_Hav_Ac"><font color="#000000">Don't have an account?</font> <font
-        color="#1847b5">sign in</font></string>
-    <string name="Already_Hav_Ac"><font color="#000000">Already have an account?</font> <font
-        color="#1847b5">login</font></string>
+<!--    <string name="Dont_Hav_Ac"><font color="#000000">Don't have an account?</font> <font-->
+<!--        color="#1847b5">sign in</font></string>-->
+
+<!--    <string name="Already_Hav_Ac"><font color="#000000">Already have an account?</font> <font-->
+<!--        color="#1847b5">login</font></string>-->
+    <string name="Dont_Hav_Ac"> Don\'t have account? sign in</string>
+    <string name="Already_Hav_Ac">Already have an account? login</string>
     <string name="welcome">Welcome</string>
     <string name="create_acco">Create Account</string>
     <string name="Login">login</string>
@@ -14,4 +17,6 @@
     <string name="get_started">Get \nStarted!</string>
     <string name="pharmacies_">Pharmacies You Marked</string>
     <string name="your_drug_s">Your Drug Search History</string>
+    <string name="search">search</string>
+    <string name="search_medi">Search Medicine</string>
 </resources>
