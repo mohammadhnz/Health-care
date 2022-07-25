@@ -34,6 +34,26 @@
         android:inputType="textPassword" />
 
     <EditText
+        android:id="@+id/editTextfirstnamePharmacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="firstname"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextlastnamePharmacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="lastname"
+        android:inputType="textPersonName" />
+
+    <EditText
         android:id="@+id/editTextPharmacyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
