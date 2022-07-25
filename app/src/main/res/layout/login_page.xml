@@ -36,7 +36,8 @@
         android:background="@drawable/text_back_3"
         android:hint="username"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
 
     <EditText
@@ -52,7 +53,8 @@
         android:background="@drawable/text_back_3"
         android:hint="password"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <View
         android:layout_width="351dp"

@@ -10,10 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.health_care.Exceptions.PharmacyLoginException;
+import com.example.health_care.PharmacyPanelActivity;
+import com.example.health_care.PharmacyRegisterActivity;
 import com.example.health_care.R;
 import com.example.health_care.controllers.Exceptions.LoginExceptions;
 import com.example.health_care.controllers.Exceptions.LoginOnceException;
+import com.example.health_care.controllers.PharmacyController;
 import com.example.health_care.controllers.UserController;
+import com.example.health_care.models.Pharmacy;
 
 public class LoginPage extends AppCompatActivity {
     EditText loginUsername;
@@ -39,26 +44,41 @@ public class LoginPage extends AppCompatActivity {
                 String username = loginUsername.getText().toString();
                 String password = loginPassword.getText().toString();
                 if (!isEmptyInput(username, password)) {
-                    String loginResultMessage = "";
-                    try {
-                        UserController.getInstance().login(username, password);
-                        loginResultMessage = getString(
-                                R.string.login_successful_message
-                        );
-                        createIntentToPanel(
-                                UserController.getInstance().getCurrentUserType()
-                        );
-                    } catch (LoginExceptions loginExceptions) {
-                        loginResultMessage = getString(
-                                R.string.login_failed_message
-                        );
-                    } catch (LoginOnceException loginOnceException) {
-                        loginResultMessage = getString(
-                                R.string.once_login_error_message
-                        ) + loginOnceException.getUserType();
-                    } finally {
-                        createToast(loginResultMessage);
+                    if(Pharmacy.findByInfo(username, password) != null){
+                        try {
+                            PharmacyController.login(username, password);
+                            Toast toast = Toast.makeText(LoginPage.this, "login", Toast.LENGTH_SHORT);
+                            toast.show();
+                            Intent intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+                            intent.putExtra("username", username);
+                            intent.putExtra("password", password);
+                            startActivity(intent);
+                        } catch (PharmacyLoginException e) {
+                            showNotFoundError(e);
+                        }
+                    }else{
+                        String loginResultMessage = "";
+                        try {
+                            UserController.getInstance().login(username, password);
+                            loginResultMessage = getString(
+                                    R.string.login_successful_message
+                            );
+                            createIntentToPanel(
+                                    UserController.getInstance().getCurrentUserType()
+                            );
+                        } catch (LoginExceptions loginExceptions) {
+                            loginResultMessage = getString(
+                                    R.string.login_failed_message
+                            );
+                        } catch (LoginOnceException loginOnceException) {
+                            loginResultMessage = getString(
+                                    R.string.once_login_error_message
+                            ) + loginOnceException.getUserType();
+                        } finally {
+                            createToast(loginResultMessage);
+                        }
                     }
+
                 } else {
                     createToast("empty input");
                 }
@@ -72,7 +92,19 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        dontHavePh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginPage.this, PharmacyRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
         // TODO: by clicking on sign in your pharmacy go to page
+    }
+
+    protected void showNotFoundError(PharmacyLoginException e) {
+        Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     private boolean isEmptyInput(String username, String password) {
@@ -87,10 +119,7 @@ public class LoginPage extends AppCompatActivity {
     private void createIntentToPanel(String userType) {
         Intent intent = null;
         if (userType.equals("Customer")) {
-            intent = new Intent(
-                    LoginPage.this,
-                    CustomerMainPage.class
-            );
+            intent = new Intent(LoginPage.this, CustomerMainPage.class);
         }
         else if(userType.equals("Admin")){
 //            intent = new Intent(
@@ -99,10 +128,9 @@ public class LoginPage extends AppCompatActivity {
 //            );
         }
         else{
-//            intent = new Intent(
-//                    LoginPage.this,
-//                    TeacherPanelPageActivity.class
-//            );
+            intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+            intent.putExtra("username", loginUsername.getText().toString());
+            intent.putExtra("password", loginPassword.getText().toString());
         }
         // TODO: login pages or main pages for pharmacy and admin
         setEmptyTextEditors();

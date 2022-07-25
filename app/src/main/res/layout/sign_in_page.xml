@@ -80,7 +80,8 @@
         android:background="@drawable/text_back_3"
         android:hint="username"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <EditText
         android:id="@+id/sign_name_id"
@@ -95,7 +96,8 @@
         android:background="@drawable/text_back_3"
         android:hint="full name"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <EditText
         android:id="@+id/sign_email_id"
@@ -110,7 +112,8 @@
         android:background="@drawable/text_back_3"
         android:hint="email"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <EditText
         android:id="@+id/admin_validation_id"
@@ -125,7 +128,8 @@
         android:background="@drawable/text_back_3"
         android:hint="validation key"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <EditText
         android:id="@+id/sign_password_id"
@@ -140,7 +144,8 @@
         android:background="@drawable/text_back_3"
         android:hint="password"
         android:textAlignment="textStart"
-        android:textColor="#204A7B" />
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in_button_id"

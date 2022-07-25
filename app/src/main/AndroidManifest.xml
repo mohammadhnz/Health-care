@@ -12,6 +12,8 @@
         <activity
             android:name=".activities.SignInPage"
             android:exported="false" />
+        <activity android:name=".PharmacyRegisterActivity"
+            android:exported="false"/>
         <activity
             android:name=".activities.CustomerMainPage"
             android:exported="false" />

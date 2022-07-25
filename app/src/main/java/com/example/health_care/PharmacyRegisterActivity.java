@@ -1,5 +1,6 @@
 package com.example.health_care;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.health_care.activities.LoginPage;
 import com.example.health_care.controllers.PharmacyController;
 import com.example.health_care.Exceptions.PharmacyAdminRegisterException;
 import com.example.health_care.Exceptions.PharmacyRegisterException;
@@ -46,6 +48,11 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
                     name,
                     pharmacyInfo
             );
+            Intent intent = new Intent(PharmacyRegisterActivity.this, PharmacyPanelActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("password", password);
+            startActivity(intent);
+
         } catch (PharmacyRegisterException e) {
             showPharmacyRegisterError(e);
         } catch (PharmacyAdminRegisterException e) {
