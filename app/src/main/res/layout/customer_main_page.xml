@@ -86,7 +86,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="-26dp"
         android:layout_marginBottom="498dp"
-        android:background="@drawable/customer_main_page_up_2" />
+        android:background="@drawable/customer_main_page_cell1" />
 
     <View
         android:layout_width="match_parent"
@@ -96,8 +96,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="-26dp"
-        android:layout_marginBottom="498dp"
-        android:background="@drawable/customer_main_page_up" />
+        android:layout_marginBottom="498dp" />
 
     <ImageView
         android:layout_width="232dp"
