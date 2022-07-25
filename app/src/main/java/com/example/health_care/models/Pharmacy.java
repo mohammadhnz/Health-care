@@ -119,4 +119,8 @@ public class Pharmacy {
         return null;
     }
 
+    public void addDrugToPharmacy(String id, String name, double price, String description){
+        drugs.add(new Drug(id, name, price, description));
+    }
+
 }
