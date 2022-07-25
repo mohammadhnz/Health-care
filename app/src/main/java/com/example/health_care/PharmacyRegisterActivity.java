@@ -17,6 +17,8 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
     EditText address;
     EditText name;
     MapView location;
+    EditText phone;
+    EditText hours;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
         address = findViewById(R.id.editTextPostalAddress);
         name = findViewById(R.id.editTextPharmacyName);
         location = findViewById(R.id.mapViewPharmacy);
+        phone = findViewById(R.id.editTextPhoneNumber);
+        hours = findViewById(R.id.editTextPharmacyHours);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
