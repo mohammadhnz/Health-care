@@ -35,4 +35,8 @@ public class Pharmacy {
         }
         return pharmaciesWithDrug;
     }
+
+    public String getName() {
+        return name;
+    }
 }

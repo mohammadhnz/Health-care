@@ -6,6 +6,8 @@ public class Customer extends User {
     private String profPhoto;
     private ArrayList<Drug> customerDrugSearches = new ArrayList<>();
     private ArrayList<Pharmacy> customerPharmacySearches = new ArrayList<>();
+    private static ArrayList<Customer> customers = new ArrayList<>();
+
     public Customer(String username, String password, String firstName, String lastName, String email) {
         super(username, password, firstName, lastName, email);
     }
@@ -22,6 +24,7 @@ public class Customer extends User {
     private void deleteBookmarkDrug(Drug drug){
         customerDrugSearches.remove(drug);
     }
-
-
+    public static void setCustomers(ArrayList<Customer> customers) {
+        Customer.customers = customers;
+    }
 }

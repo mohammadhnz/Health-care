@@ -1,5 +1,7 @@
 package com.example.health_care.controllers;
 
+import com.example.health_care.controllers.Exceptions.LoginExceptions;
+import com.example.health_care.controllers.Exceptions.LoginOnceException;
 import com.example.health_care.models.Admin;
 import com.example.health_care.models.Customer;
 import com.example.health_care.models.Pharmacy;
@@ -58,18 +60,92 @@ public class UserController {
         return "Successful!";
     }
 
-//    public String registerPharmacy(String name, String location, String phone, String openingHours) {
-//        for (Pharmacy pharmacy : allPharmacies) {
-//            if (pharmacy.get().equals(username.trim())) {
-//                return "Error: Student exists with this username";
-//            }
-//        }
-//        if (this.user != null) {
-//            return "Error: You already logged in";
-//        }
-//        Student student = new Student(username, password, firstName, lastName, studentId);
-//        this.allStudents.add((Student) student);
-//        this.saveAllStudents();
-//        return "Successful!";
-//    }
+    public String registerPharmacy(String name, String location, String phone, String openingHours) {
+        for (Pharmacy pharmacy : allPharmacies) {
+            if (pharmacy.getName().equals(name.trim())) {
+                return "Error: Student exists with this username";
+            }
+        }
+        if (this.user != null) {
+            return "Error: You already logged in";
+        }
+        Pharmacy pharmacy = new Pharmacy(name, location, phone, openingHours);
+        this.allPharmacies.add((Pharmacy) pharmacy);
+        //this.saveALlPharmacies();
+        return "Successful!";
+    }
+
+    public String logout() {
+        if (this.user == null) {
+            return "Error: You are not logged in.";
+        }
+        this.user = null;
+        return "Logged out";
+    }
+
+    public User getCurrentUser() {
+        if (this.user == null) {
+            return null;
+        }
+        return this.user;
+    }
+
+    public void login(String username, String password) throws LoginOnceException, LoginExceptions {
+        if (this.user != null) {
+            if (!this.user.getPassword().equals(password) || !this.user.getUsername().equals(username))
+                throw new LoginOnceException(this.getCurrentUserType());
+        }
+        User currentUser = User.login(username, password);
+        if (currentUser == null) {
+            throw new LoginExceptions();
+        }
+        this.user = currentUser;
+    }
+
+    public String getCurrentUserType() {
+        if (this.user == null) {
+            return "Error! You are not logged in";
+        }
+        if (this.user instanceof Customer) {
+            return "Customer";
+        }
+        else if (this.user instanceof Admin) {
+            return "Admin";
+        }
+        return "Pharmacy";
+    }
+
+    public void setAllAdmins(ArrayList<Admin> allAdmins) {
+        this.allAdmins = allAdmins;
+    }
+
+    public void setAllCustomers(ArrayList<Customer> allCustomers) {
+        this.allCustomers = allCustomers;
+    }
+
+    public void setAllPharmacies(ArrayList<Pharmacy> allPharmacies) {
+        this.allPharmacies = allPharmacies;
+    }
+
+    public void resetAllUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        users.addAll(allAdmins);
+        users.addAll(allCustomers);
+        User.setUsers(users);
+        Admin.setAdmins(allAdmins);
+        Customer.setCustomers(allCustomers);
+        // TODO: `reset Pharmacies as well
+    }
+
+    public ArrayList<Admin> getAllAdmins() {
+        return allAdmins;
+    }
+
+    public ArrayList<Customer> getAllCustomers() {
+        return allCustomers;
+    }
+
+    public ArrayList<Pharmacy> getAllPharmacies() {
+        return allPharmacies;
+    }
 }
