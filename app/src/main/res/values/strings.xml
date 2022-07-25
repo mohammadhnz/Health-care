@@ -9,4 +9,9 @@
     <string name="welcome">Welcome</string>
     <string name="create_acco">Create Account</string>
     <string name="Login">login</string>
+    <string name="secure_your"><font color="#FF47FF44">Secure </font><font color="#FFFFFF">Your Loved Ones</font></string>
+    <string name="enjoy_life_">Enjoy Life at Every Stage</string>
+    <string name="get_started">Get \nStarted!</string>
+    <string name="pharmacies_">Pharmacies You Marked</string>
+    <string name="your_drug_s">Your Drug Search History</string>
 </resources>
