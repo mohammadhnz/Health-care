@@ -25,4 +25,9 @@
     <string name="welcome_to_pharmacy_finder">Welcome to Pharmacy Finder</string>
     <string name="don_t_have_an_account_sign_in"><font color="#000000">don\'t have an account? </font><font color="#1847b5">sign in</font></string>
     <string name="sign_in_as_phar"><font color="#1847b5">sign in your pharmacy</font></string>
+    <string name="app_icon">APP ICON</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="redirectToPharmacyRegisterText">create an account if you don\'t have one.</string>
 </resources>
