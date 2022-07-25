@@ -11,11 +11,10 @@ public class User {
     private boolean isLoggedIn;
     private static ArrayList<User> users = new ArrayList<>();
 
-    public User(String username, String password, String firstName, String lastName, String email) {
+    public User(String username, String password, String name, String email) {
         this.username = username;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = name;
         this.isLoggedIn = false;
         this.email = email;
         users.add(this);

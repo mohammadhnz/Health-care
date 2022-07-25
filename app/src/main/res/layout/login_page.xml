@@ -5,6 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clipToOutline="true"
+    android:background="#FFFF"
     tools:context=".MainActivity">
 
     <TextView
@@ -34,7 +35,8 @@
         android:layout_marginEnd="61dp"
         android:background="@drawable/text_back_3"
         android:hint="username"
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
 
     <EditText
@@ -49,7 +51,8 @@
         android:layout_marginEnd="60dp"
         android:background="@drawable/text_back_3"
         android:hint="password"
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
     <View
         android:layout_width="351dp"
@@ -69,22 +72,39 @@
         android:layout_marginTop="-13dp"
         android:background="@drawable/circle" />
 
+
     <TextView
-        android:id="@+id/already_hav"
+        android:id="@+id/dont_have"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="592dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="117dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="624dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="85dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center_horizontal|top"
-        android:text="@string/Dont_Hav_Ac"
-        android:textAppearance="@style/Dont_Hav_Ac"
+        android:text="@string/don_t_have_an_account_sign_in"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/sign_in_as_pharmacy"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="654dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="55dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center_horizontal|top"
+        android:text="@string/sign_in_as_phar"
         android:textIsSelectable="true" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -93,8 +113,8 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="151dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="154dp"
         android:background="@drawable/button_style"
         android:fontFamily="sans-serif"
         android:gravity="center"

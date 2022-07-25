@@ -30,7 +30,7 @@ public class UserController {
         return userController;
     }
 
-    public String registerAdmin(String username, String password, String firstName, String lastName, String email) {
+    public String registerAdmin(String username, String password, String firstName, String email) {
         for (Admin teacher : allAdmins) {
             if (teacher.getUsername() == username.trim()) {
                 return "Error: Admin exists with this username";
@@ -39,13 +39,13 @@ public class UserController {
         if (this.user != null) {
             return "Error: You already logged in";
         }
-        Admin admin = new Admin(username, password, firstName, lastName, email);
+        Admin admin = new Admin(username, password, firstName, email);
         this.allAdmins.add((Admin) admin);
         //this.saveAllAdmins();
         return "Successful!";
     }
 
-    public String registerCustomer(String username, String password, String firstName, String lastName, String email) {
+    public String registerCustomer(String username, String password, String firstName, String email) {
         for (Customer student : allCustomers) {
             if (student.getUsername().equals(username.trim())) {
                 return "Error: Student exists with this username";
@@ -54,7 +54,7 @@ public class UserController {
         if (this.user != null) {
             return "Error: You already logged in";
         }
-        Customer customer = new Customer(username, password, firstName, lastName, email);
+        Customer customer = new Customer(username, password, firstName, email);
         this.allCustomers.add((Customer) customer);
         //this.saveAllCustomers();
         return "Successful!";

@@ -8,8 +8,8 @@ public class Customer extends User {
     private ArrayList<Pharmacy> customerPharmacySearches = new ArrayList<>();
     private static ArrayList<Customer> customers = new ArrayList<>();
 
-    public Customer(String username, String password, String firstName, String lastName, String email) {
-        super(username, password, firstName, lastName, email);
+    public Customer(String username, String password, String firstName, String email) {
+        super(username, password, firstName, email);
     }
 
     private void addBookmarkPharmacy(Pharmacy pharmacy){

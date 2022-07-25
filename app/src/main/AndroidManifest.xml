@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Care">
         <activity
+            android:name=".activities.SignInPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CustomerMainPage"
+            android:exported="false" />
+        <activity
             android:name=".activities.LoginPage"
             android:exported="false" />
         <activity

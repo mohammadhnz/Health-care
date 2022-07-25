@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <View
         android:layout_width="303dp"
@@ -59,7 +60,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center_horizontal|top"
         android:text="@string/create_acco"
@@ -67,32 +68,34 @@
         android:textSize="40dp" />
 
     <EditText
-        android:id="@+id/sign_firstname_id"
+        android:id="@+id/sign_username_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="267dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="62dp"
         android:background="@drawable/text_back_3"
-        android:hint="first name"
-        android:textAlignment="textStart" />
+        android:hint="username"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
     <EditText
-        android:id="@+id/sign_lastname_id"
+        android:id="@+id/sign_name_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="339dp"
-        android:layout_marginEnd="66dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="61dp"
         android:background="@drawable/text_back_3"
-        android:hint="last name"
-        android:textAlignment="textStart" />
+        android:hint="full name"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
     <EditText
         android:id="@+id/sign_email_id"
@@ -102,11 +105,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="407dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/text_back_3"
         android:hint="email"
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
+
+    <EditText
+        android:id="@+id/admin_validation_id"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="598dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/text_back_3"
+        android:hint="validation key"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
     <EditText
         android:id="@+id/sign_password_id"
@@ -116,11 +135,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="66dp"
+        android:layout_marginTop="436dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/text_back_3"
         android:hint="password"
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:textColor="#204A7B" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in_button_id"
@@ -128,8 +148,8 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="145dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="184dp"
         android:background="@drawable/button_style"
         android:fontFamily="sans-serif"
         android:gravity="center"
@@ -145,13 +165,43 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="596dp"
+        android:layout_marginTop="556dp"
         android:layout_marginEnd="86dp"
-        android:layout_marginBottom="113dp"
+        android:layout_marginBottom="153dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center_horizontal|top"
         android:text="@string/Already_Hav_Ac"
         android:textAppearance="@style/Already_Hav_Ac"
         android:textIsSelectable="true" />
+
+    <TextView
+        android:layout_width="247dp"
+        android:layout_height="42dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="657dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="31dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center_horizontal|top"
+        android:text="Enter admin validation key to sign in as admin"
+        android:textAppearance="@style/Already_Hav_Ac"
+        android:textIsSelectable="true" />
+
+    <View
+        android:layout_width="348dp"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="585dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/line_1" />
 
 </RelativeLayout>
