@@ -120,11 +120,11 @@
         android:id="@+id/create_acco"
         android:layout_width="280dp"
         android:layout_height="93dp"
-        android:layout_marginTop="-645dp"
         android:layout_marginStart="64dp"
+        android:layout_marginTop="-645dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center_horizontal|top"
-        android:text="@string/create_acco"
+        android:text="Add Drug"
         android:textAppearance="@style/create_acco"
         android:textSize="40dp" />
 

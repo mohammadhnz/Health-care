@@ -107,7 +107,7 @@
         android:textColorHint="#8C8C9C" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topCell"
+        android:id="@+id/search_result_id"
         android:layout_width="335dp"
         android:layout_height="471dp"
         android:layout_alignParentLeft="true"
@@ -119,7 +119,6 @@
         android:background="@drawable/customer_main_page_cell1" />
 
     <TextView
-        android:id="@+id/search_medi"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
