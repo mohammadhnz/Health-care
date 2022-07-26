@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.health_care.R;
+import com.example.health_care.controllers.Exceptions.LoginExceptions;
+import com.example.health_care.controllers.Exceptions.LoginOnceException;
 import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Admin;
 import com.example.health_care.models.User;
@@ -78,6 +80,11 @@ public class SignInPage extends AppCompatActivity {
                                     sFirstname,
                                     sLastname
                             );
+                            try {
+                                UserController.getInstance().login(sUsername, sPassword);
+                            } catch (LoginOnceException | LoginExceptions e) {
+                                e.printStackTrace();
+                            }
                             createToast(response);
                             Intent intent = new Intent(SignInPage.this, CustomerMainPage.class);
                             setEmptyTextEditors();

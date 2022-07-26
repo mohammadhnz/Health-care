@@ -12,19 +12,27 @@ public class Customer extends User {
         super(username, password, firstName, email);
     }
 
-    private void addBookmarkPharmacy(Pharmacy pharmacy){
+    public void addBookmarkPharmacy(Pharmacy pharmacy){
         customerPharmacySearches.add(pharmacy);
     }
-    private void deleteBookMarkPharmacy(Pharmacy pharmacy){
+    public void deleteBookMarkPharmacy(Pharmacy pharmacy){
         customerPharmacySearches.remove(pharmacy);
     }
-    private void addBookmarkDrug(Drug drug){
+    public void addBookmarkDrug(Drug drug){
         customerDrugSearches.add(drug);
     }
-    private void deleteBookmarkDrug(Drug drug){
+    public void deleteBookmarkDrug(Drug drug){
         customerDrugSearches.remove(drug);
     }
     public static void setCustomers(ArrayList<Customer> customers) {
         Customer.customers = customers;
+    }
+
+    public ArrayList<Pharmacy> getCustomerPharmacySearches() {
+        return customerPharmacySearches;
+    }
+
+    public ArrayList<Drug> getCustomerDrugSearches() {
+        return customerDrugSearches;
     }
 }

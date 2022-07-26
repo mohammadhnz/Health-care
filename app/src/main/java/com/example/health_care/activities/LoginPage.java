@@ -120,6 +120,7 @@ public class LoginPage extends AppCompatActivity {
         Intent intent = null;
         if (userType.equals("Customer")) {
             intent = new Intent(LoginPage.this, CustomerMainPage.class);
+
         }
         else if(userType.equals("Admin")){
 //            intent = new Intent(

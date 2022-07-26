@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.health_care.activities.LoginPage;
+import com.example.health_care.models.Customer;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView1, textView22;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Customer customer = new Customer("r", "r", "r", "r");
         getSupportActionBar().hide();
         textView1 = findViewById(R.id.textView1);
         textView22 = findViewById(R.id.textView22);
