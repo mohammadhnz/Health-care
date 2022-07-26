@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.health_care.activities.LoginPage;
+import com.example.health_care.activities.SearchPage;
 import com.example.health_care.models.Customer;
 
 public class MainActivity extends AppCompatActivity {

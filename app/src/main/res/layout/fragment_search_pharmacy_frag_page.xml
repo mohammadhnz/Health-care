@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SearchDrugFragPage"
     android:background="#FFFFFF"
-    >
+    tools:context=".activities.SearchPharmacyFragPage">
 
 
     <ScrollView
@@ -127,7 +126,7 @@
         android:layout_marginEnd="81dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="top"
-        android:text="@string/search_medi"
+        android:text="Search Pharmacy"
         android:textAppearance="@style/search_medi"
         android:textColor="#664E93"
         android:textSize="30sp"

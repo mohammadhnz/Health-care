@@ -9,10 +9,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.health_care.PharmacyPanelActivity;
 import com.example.health_care.R;
 import com.example.health_care.adapters.CustomerMainPageDrugAdapter;
 import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;
@@ -26,7 +29,7 @@ import java.text.ParseException;
 public class CustomerMainPage extends AppCompatActivity implements CustomerMainPagePharmacyAdapter.OnNoteListener, CustomerMainPageDrugAdapter.OnNoteListenerDrug{
     RecyclerView markedPharmacyRecycler;
     RecyclerView markedDrugRecycler;
-    AppCompatButton getStartedBtn;
+    Button getStartedBtn;
     ImageView personalInfoIcon;
     ImageView settingIcon;
     Customer customer;
@@ -73,6 +76,14 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
         drugAdapter = new CustomerMainPageDrugAdapter(this, customer.getCustomerDrugSearches(), this);
         markedDrugRecycler.setAdapter(drugAdapter);
         drugAdapter.notifyDataSetChanged();
+
+        getStartedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerMainPage.this, SearchPage.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
