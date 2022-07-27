@@ -11,6 +11,12 @@
         android:layout_height="290dp"
         android:layout_marginTop="50dp" />
 
+    <Button
+        android:id="@+id/buttonBackPharmacyPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
     <View
         android:id="@+id/view3"
         android:layout_width="132dp"

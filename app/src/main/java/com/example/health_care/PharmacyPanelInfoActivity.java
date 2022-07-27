@@ -116,7 +116,7 @@ public class PharmacyPanelInfoActivity extends AppCompatActivity implements Phar
                 Intent intent1 = new Intent(PharmacyPanelInfoActivity.this, PharmacyDrugsActivity.class);
                 intent1.putExtra("username", username.getText().toString());
                 intent1.putExtra("password",password);
-                startActivityForResult(intent1, 200);
+                startActivity(intent1);
             }
         });
 

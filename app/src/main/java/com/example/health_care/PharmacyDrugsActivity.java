@@ -3,6 +3,8 @@ package com.example.health_care;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,12 +23,14 @@ public class PharmacyDrugsActivity extends AppCompatActivity  implements Pharmac
     ArrayList<Drug> drugs = new ArrayList<>();
     RecyclerView recyclerView;
     PharmacyAddPageDrugAdaptor drugAdapter;
+    Button backButton;
     PharmacyAdmin user;
     @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_drug_pharmacy);
+        backButton = findViewById(R.id.buttonBackPharmacyPanel);
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
         String password = intent.getStringExtra("password");
@@ -37,6 +41,15 @@ public class PharmacyDrugsActivity extends AppCompatActivity  implements Pharmac
         drugAdapter = new PharmacyAddPageDrugAdaptor(this, drugs, this, user);
         recyclerView.setAdapter(drugAdapter);
         drugAdapter.notifyDataSetChanged();
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(PharmacyDrugsActivity.this, PharmacyPanelInfoActivity.class);
+                intent1.putExtra("username", username);
+                intent1.putExtra("password", password);
+                startActivity(intent1);
+            }
+        });
     }
 
     @Override

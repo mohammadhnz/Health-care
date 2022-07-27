@@ -3,6 +3,7 @@ package com.example.health_care;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
 import com.example.health_care.models.Drug;
 import com.example.health_care.models.PharmacyAdmin;
 
@@ -49,7 +51,26 @@ public class PharmacyAddPageDrugAdaptor extends RecyclerView.Adapter<PharmacyAdd
         holder.drugPrice.setText("price: " + String.valueOf(drugs.get(position).getPrice()));
         try {
             holder.used.setChecked(user.getPharmacy().getDrugs().contains(drugs.get(position)));
-        } catch (NullPointerException e){
+            holder.used.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    Log.d("kal", "bal");
+                    if (b) {
+                        if (!user.getPharmacy().getDrugs().contains(drugs.get(position))) {
+                            try {
+                                user.getPharmacy().addDrug(drugs.get(position).getId());
+                            } catch (PharmacyGetDrugsExceptions pharmacyGetDrugsExceptions) {
+                                pharmacyGetDrugsExceptions.printStackTrace();
+                            }
+                        }
+                    } else {
+                        if (user.getPharmacy().getDrugs().contains(drugs.get(position))) {
+                            user.getPharmacy().getDrugs().remove(drugs.get(position));
+                        }
+                    }
+                }
+            });
+        } catch (NullPointerException e) {
             holder.used.setChecked(false);
         }
         Context context = inflater.getContext();
@@ -87,16 +108,6 @@ public class PharmacyAddPageDrugAdaptor extends RecyclerView.Adapter<PharmacyAdd
             drugPrice = recRowLayout.findViewById(R.id.drug_price_id_row);
             icon = itemView.findViewById(R.id.drug_img_recId);
             used = recRowLayout.findViewById(R.id.checkBox);
-            used.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if (b){
-                        if ()
-                    }else {
-
-                    }
-                }
-            });
             this.onNoteListener = onNoteListener;
             itemView.setOnClickListener(this);
         }
