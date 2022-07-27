@@ -1,6 +1,7 @@
 package com.example.health_care.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,8 @@ import android.widget.Toast;
 import com.example.health_care.R;
 import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;
 import com.example.health_care.adapters.SearchDugRecyclerAdapter;
+import com.example.health_care.controllers.UserController;
+import com.example.health_care.models.Customer;
 import com.example.health_care.models.Drug;
 import com.example.health_care.models.Pharmacy;
 
@@ -115,6 +118,16 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
 
     @Override
     public void OnNoteListenerDrug(ImageView icon, TextView drugName, TextView drugPrice, int position) throws ParseException {
-
+        Toast toast = Toast.makeText(getActivity(), "CLICKED", Toast.LENGTH_SHORT);
+        toast.show();
+        Intent intent = new Intent(
+                this.getActivity(),
+                DrugPage.class
+        );
+        Drug drug = drugAdapter.getDrugs().get(position);
+        Customer customer = (Customer) UserController.getInstance().getCurrentUser();
+        customer.addBookmarkDrug(drug);
+        intent.putExtra("drugId", String.valueOf(drug.getId()));
+        startActivity(intent);
     }
 }

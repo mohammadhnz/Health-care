@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Care">
         <activity
+            android:name=".activities.DrugPage"
+            android:exported="false" />
+        <activity
             android:name=".activities.SearchPage"
             android:exported="false"
             android:label="@string/title_activity_search_page"

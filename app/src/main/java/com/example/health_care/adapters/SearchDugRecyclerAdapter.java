@@ -60,6 +60,10 @@ public class SearchDugRecyclerAdapter extends RecyclerView.Adapter<SearchDugRecy
         notifyDataSetChanged();
     }
 
+    public ArrayList<Drug> getDrugs() {
+        return drugs;
+    }
+
     @Override
     public int getItemCount() {
         return drugs.size();
