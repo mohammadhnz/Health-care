@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.SearchDrugFragPage"
+    android:clipToOutline="true"
     android:background="#FFFFFF"
     >
 
@@ -65,47 +66,58 @@
         android:layout_marginBottom="-8dp"
         android:background="@drawable/circle" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/search_drug_button_id"
-        android:layout_width="78.36dp"
-        android:layout_height="52.92dp"
-        android:layout_marginStart="295dp"
-        android:layout_marginTop="127dp"
-        android:background="@drawable/search_drug_button"
-        android:elevation="4dp"
-        android:fontFamily="@font/playfair_display"
-        android:text="@string/search"
-        android:textAlignment="textStart"
-        android:textColor="#F2F4F4F4"
-        android:textColorHighlight="#303F9F"
-        android:textStyle="bold" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/search_drug_button_id"-->
+<!--        android:layout_width="78.36dp"-->
+<!--        android:layout_height="52.92dp"-->
+<!--        android:layout_marginStart="295dp"-->
+<!--        android:layout_marginTop="127dp"-->
+<!--        android:background="@drawable/search_drug_button"-->
+<!--        android:elevation="4dp"-->
+<!--        android:fontFamily="@font/playfair_display"-->
+<!--        android:text="@string/search"-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:textColor="#F2F4F4F4"-->
+<!--        android:textColorHighlight="#303F9F"-->
+<!--        android:textStyle="bold" />-->
 
 
 
-    <EditText
+<!--    <EditText-->
+<!--        android:id="@+id/search_drug_bar_id"-->
+<!--        android:layout_width="344dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="119dp"-->
+<!--        android:layout_marginEnd="40dp"-->
+<!--        android:layout_marginBottom="542dp"-->
+<!--        android:background="@drawable/text_back_3"-->
+<!--        android:hint="search here..."-->
+<!--        android:textAlignment="textStart"-->
+<!--        android:textColor="#204A7B"-->
+<!--        android:textColorHint="#8C8C9C" />-->
+
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/search_drug_bar_id"
-        android:layout_width="344dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#204A7B"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="119dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="542dp"
+        android:layout_marginTop="119dp"
         android:background="@drawable/text_back_3"
-        android:hint="search here..."
-        android:textAlignment="textStart"
-        android:textColor="#204A7B"
-        android:textColorHint="#8C8C9C" />
+        android:hint="@string/search_here"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_result_id"
+        android:layout_below="@id/search_drug_bar_id"
         android:layout_width="327dp"
-        android:layout_height="477dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="38dp"
+        android:layout_height="490dp"
+        android:layout_marginStart="38dp"
         android:layout_marginTop="216dp"
-        android:layout_marginBottom="22dp" />
+        android:layout_marginBottom="22dp"
+        />
 <!--        android:background="@drawable/customer_main_page_cell1" -->
 
 

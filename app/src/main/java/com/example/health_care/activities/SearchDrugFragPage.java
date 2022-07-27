@@ -37,6 +37,7 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
     Button searchButton;
     RecyclerView drugSearchResultRecycler;
     SearchDugRecyclerAdapter drugAdapter;
+    SearchView searchView;
 
     public SearchDrugFragPage() {
     }
@@ -66,21 +67,29 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
 
 
         rootView = inflater.inflate(R.layout.search_drug_frag__page, container, false);
-        drugName = rootView.findViewById(R.id.search_drug_bar_id);
-        searchButton = rootView.findViewById(R.id.search_drug_button_id);
+        searchView = rootView.findViewById(R.id.search_drug_bar_id);
         drugSearchResultRecycler = rootView.findViewById(R.id.search_result_id);
 
-        buildRecyclerView();
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                if (!drugName.getText().toString().isEmpty()){
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-                }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // inside on query text change method we are
+                // calling a method to filter our recycler view.
+                filter(newText);
+                return false;
             }
         });
 
+        drugSearchResultRecycler.setLayoutManager(new LinearLayoutManager(rootView.getContext(), LinearLayoutManager.VERTICAL, false));
+        drugAdapter = new SearchDugRecyclerAdapter(rootView.getContext(), Drug.getDrugs(), this);
+        drugSearchResultRecycler.setAdapter(drugAdapter);
+        drugAdapter.notifyDataSetChanged();
 
         return rootView;
     }
@@ -136,15 +145,6 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
             // list to our adapter class.
             drugAdapter.filterList(filteredlist);
         }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private void buildRecyclerView() {
-        drugSearchResultRecycler.setLayoutManager(new LinearLayoutManager(rootView.getContext(), LinearLayoutManager.VERTICAL, false));
-        drugAdapter = new SearchDugRecyclerAdapter(rootView.getContext(), Drug.getDrugs(), this);
-        drugSearchResultRecycler.setAdapter(drugAdapter);
-        drugAdapter.notifyDataSetChanged();
-
     }
 
     @Override

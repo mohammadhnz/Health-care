@@ -37,4 +37,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="medicine">medicine</string>
     <string name="pharmacy">pharmacy</string>
+    <string name="search_here">search here...</string>
 </resources>

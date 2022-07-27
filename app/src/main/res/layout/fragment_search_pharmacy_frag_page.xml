@@ -108,7 +108,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/phar_search_result_id"
         android:layout_width="335dp"
-        android:layout_height="471dp"
+        android:layout_height="490dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
