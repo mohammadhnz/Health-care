@@ -34,12 +34,12 @@ public class SignInPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_page);
 
-        signUsername = findViewById(R.id.sign_username_id);
-        signPassword = findViewById(R.id.sign_password_id);
-        signFullName = findViewById(R.id.sign_name_id);
-        signEmail = findViewById(R.id.sign_email_id);
+        signUsername = findViewById(R.id.sign_username_id_pharmacy);
+        signPassword = findViewById(R.id.sign_password_id_pharmacy);
+        signFullName = findViewById(R.id.sign_name_id_pharmacy);
+        signEmail = findViewById(R.id.sign_email_id_pharmacy);
         validationKey = findViewById(R.id.admin_validation_id);
-        signInButton = findViewById(R.id.sign_in_button_id);
+        signInButton = findViewById(R.id.sign_in_button_id_pharmacy);
         alreadyHavAcc = findViewById(R.id.already_hav);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -110,10 +110,10 @@ public class SignInPage extends AppCompatActivity {
     }
 
     private void setEmptyTextEditors() {
-        signUsername = findViewById(R.id.sign_username_id);
-        signEmail = findViewById(R.id.sign_email_id);
-        signPassword = findViewById(R.id.sign_password_id);
-        signFullName = findViewById(R.id.sign_name_id);
+        signUsername = findViewById(R.id.sign_username_id_pharmacy);
+        signEmail = findViewById(R.id.sign_email_id_pharmacy);
+        signPassword = findViewById(R.id.sign_password_id_pharmacy);
+        signFullName = findViewById(R.id.sign_name_id_pharmacy);
         validationKey = findViewById(R.id.admin_validation_id);
         String emptyString = "";
         signUsername.setText(emptyString);

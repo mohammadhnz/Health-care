@@ -9,10 +9,12 @@ public class PharmacyAdmin extends User {
     public PharmacyAdmin(String username, String password, String firstName, String lastName, Pharmacy pharmacy) {
         super(username, password, firstName, lastName);
         this.pharmacy = pharmacy;
+        this.setLastName(lastName);
+        pharmacyAdmins.add(this);
     }
 
     public Pharmacy getPharmacy() {
-        return pharmacy;
+        return this.pharmacy;
     }
 
     public void setPharmacy(Pharmacy pharmacy) {

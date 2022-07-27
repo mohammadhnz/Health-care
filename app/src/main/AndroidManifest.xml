@@ -36,6 +36,12 @@
             android:name=".activities.LoginPage"
             android:exported="false" />
         <activity
+            android:name=".PharmacyPanelInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacyDrugsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

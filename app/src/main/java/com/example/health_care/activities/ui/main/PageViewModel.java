@@ -5,8 +5,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
-import com.example.health_care.R;
-import com.example.health_care.databinding.FragmentSearchPageBinding;
 
 public class PageViewModel extends ViewModel {
 
