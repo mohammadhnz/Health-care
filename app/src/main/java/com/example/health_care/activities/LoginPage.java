@@ -18,6 +18,7 @@ import com.example.health_care.controllers.Exceptions.LoginExceptions;
 import com.example.health_care.controllers.Exceptions.LoginOnceException;
 import com.example.health_care.controllers.PharmacyController;
 import com.example.health_care.controllers.UserController;
+import com.example.health_care.models.Admin;
 import com.example.health_care.models.Pharmacy;
 
 public class LoginPage extends AppCompatActivity {
@@ -55,8 +56,8 @@ public class LoginPage extends AppCompatActivity {
                             startActivity(intent);
                         } catch (PharmacyLoginException e) {
                             showNotFoundError(e);
-                        }
-                    }else{
+                        }}
+                    else{
                         String loginResultMessage = "";
                         try {
                             UserController.getInstance().login(username, password);
@@ -123,10 +124,10 @@ public class LoginPage extends AppCompatActivity {
 
         }
         else if(userType.equals("Admin")){
-//            intent = new Intent(
-//                    LoginPage.this,
-//                    TeacherPanelPageActivity.class
-//            );
+            intent = new Intent(
+                    LoginPage.this,
+                    AdminMainPage.class
+            );
         }
         else{
             intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);

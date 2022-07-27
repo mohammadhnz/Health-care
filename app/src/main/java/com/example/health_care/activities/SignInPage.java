@@ -68,8 +68,10 @@ public class SignInPage extends AppCompatActivity {
                                         sLastname
                                 );
                                 createToast(response);
-                                // TODO: change intent to admin activity
-                            }else{
+                                Intent intent = new Intent(SignInPage.this, AdminMainPage.class);
+                                setEmptyTextEditors();
+                                startActivity(intent);
+                            } else {
                                 createToast("incorrect validation key");
                                 setEmptyTextEditors();
                             }

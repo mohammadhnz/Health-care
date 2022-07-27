@@ -1,7 +1,5 @@
 package com.example.health_care.models;
 
-import com.example.health_care.models.Drug;
-
 import java.util.ArrayList;
 
 public class Pharmacy {
@@ -119,7 +117,7 @@ public class Pharmacy {
         return null;
     }
 
-    public void addDrugToPharmacy(String id, String name, double price, String description){
+    public void addDrugToPharmacy(String id, String name, double price, String description) {
         drugs.add(new Drug(id, name, price, description));
     }
 

@@ -8,6 +8,15 @@ public class Admin extends User {
     public Admin(String username, String password, String firstName, String gmail) {
         super(username, password, firstName, gmail);
     }
+    public static Admin findByInfo(String name, String password) {
+        for (Admin admin: admins
+        ) {
+            if (admin.getUsername().equals(name) && admin.getPassword().equals(password)) {
+                return admin;
+            }
+        }
+        return null;
+    }
 
     public static void setAdmins(ArrayList<Admin> admins) {
         Admin.admins = admins;
