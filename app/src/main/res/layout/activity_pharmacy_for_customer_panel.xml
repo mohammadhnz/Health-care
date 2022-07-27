@@ -121,17 +121,6 @@
             android:text="Logout"
             android:textColor="#FFFFFF" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_drug_button_pharmacy_panel"
-            android:layout_width="75dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/button_style"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="Drug"
-            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

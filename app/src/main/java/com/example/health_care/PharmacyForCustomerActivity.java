@@ -16,43 +16,40 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
-import com.example.health_care.Exceptions.PharmacyLogoutException;
-import com.example.health_care.activities.LoginPage;
 import com.example.health_care.models.Drug;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PharmacyPanelInfoActivity extends AppCompatActivity implements PharmacyMainPageDrugAdapter.OnNoteListenerDrug {
+public class PharmacyForCustomerActivity extends AppCompatActivity implements PharmacyMainPageDrugAdapter.OnNoteListenerDrug {
+    Button back;
     TextView username;
     TextView fullName;
     String password;
     TextView phone;
     TextView address;
     TextView pharmacyName;
-    Button logout;
-    Button addDrug;
     ArrayList<Drug> drugs = new ArrayList<>();
     RecyclerView recyclerView;
     PharmacyMainPageDrugAdapter drugAdapter;
-
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pharmacy_panel_info);
+        setContentView(R.layout.activity_pharmacy_for_customer_panel);
         Intent intent = getIntent();
+        password = intent.getStringExtra("password");
+        back = findViewById(R.id.back_button_pharmacy_panel_customer);
         username = findViewById(R.id.pharmacy_panel_username_customer);
         fullName = findViewById(R.id.pharmacy_panel_name_customer);
-        pharmacyName = findViewById(R.id.pharmacy_panel_pharmacy_name_customer);
         phone = findViewById(R.id.pharmacy_panel_phone_customer);
         address = findViewById(R.id.pharmacy_panel_address_customer);
-        logout = findViewById(R.id.back_button_pharmacy_panel_customer);
-        password = intent.getStringExtra("password").toString();
-        addDrug = findViewById(R.id.add_drug_button_pharmacy_panel);
+        pharmacyName = findViewById(R.id.pharmacy_panel_pharmacy_name_customer);
         recyclerView = findViewById(R.id.pharmacy_panel_drugs_customer);
+
+
         username.setText(
                 intent.getStringExtra("username").toString()
         );
@@ -62,7 +59,7 @@ public class PharmacyPanelInfoActivity extends AppCompatActivity implements Phar
         } catch (PharmacyGetDrugsExceptions e) {
             Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             Log.d("error", "onCreate: salam");
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
@@ -73,7 +70,7 @@ public class PharmacyPanelInfoActivity extends AppCompatActivity implements Phar
         try {
             info = com.example.health_care.controllers.PharmacyController.getUserInfo(intent.getStringExtra("username"), intent.getStringExtra("password"));
         } catch (PharmacyGetDrugsExceptions pharmacyGetDrugsExceptions) {
-            Toast toast = Toast.makeText(PharmacyPanelInfoActivity.this, "not found", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(PharmacyForCustomerActivity.this, "not found", Toast.LENGTH_SHORT);
             toast.show();
         }
         username.setText(
@@ -93,30 +90,13 @@ public class PharmacyPanelInfoActivity extends AppCompatActivity implements Phar
                 info.get("phone")
         );
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    com.example.health_care.controllers.PharmacyController.logout(username.getText().toString(), password);
-                    Intent intent1 = new Intent(PharmacyPanelInfoActivity.this, LoginPage.class);
-                    startActivity(intent1);
-                } catch (PharmacyLogoutException e) {
-                    Toast toast = Toast.makeText(PharmacyPanelInfoActivity.this, e.getMessage(), Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                Intent intent1 = new Intent();
+                startActivity(intent);
             }
         });
-
-        addDrug.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(PharmacyPanelInfoActivity.this, PharmacyDrugsActivity.class);
-                intent1.putExtra("username", username.getText().toString());
-                intent1.putExtra("password",password);
-                startActivity(intent1);
-            }
-        });
-
 
     }
 
