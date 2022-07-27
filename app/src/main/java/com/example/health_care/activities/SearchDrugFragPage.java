@@ -33,8 +33,6 @@ import androidx.appcompat.widget.SearchView;
 
 public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAdapter.OnNoteListenerDrug{
     View rootView;
-    EditText drugName;
-    Button searchButton;
     RecyclerView drugSearchResultRecycler;
     SearchDugRecyclerAdapter drugAdapter;
     SearchView searchView;
@@ -70,6 +68,12 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
         searchView = rootView.findViewById(R.id.search_drug_bar_id);
         drugSearchResultRecycler = rootView.findViewById(R.id.search_result_id);
 
+        searchView.setIconified(false);
+        searchView.setIconifiedByDefault(false);
+
+        SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete)searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        searchAutoComplete.setHintTextColor(getResources().getColor(R.color.purple_200));
+        searchAutoComplete.setTextColor(getResources().getColor(R.color.purple_700));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -94,34 +98,6 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
         return rootView;
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // below line is to get our inflater
-        inflater.inflate(R.menu.search_drug_menu, menu);
-        super.onCreateOptionsMenu(menu,inflater);
-
-        // below line is to get our menu item.
-        MenuItem searchItem = menu.findItem(R.id.search_drug_row_layout);
-
-        // getting search view of our item.
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        // below line is to call set on query text listener method.
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // inside on query text change method we are
-                // calling a method to filter our recycler view.
-                filter(newText);
-                return false;
-            }
-        });
-    }
 
     private void filter(String text) {
         // creating a new array list to filter our data.
