@@ -65,9 +65,9 @@
 
     <TextView
         android:id="@+id/dont_have"
-        android:layout_width="249dp"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-162dp"
+        android:layout_marginStart="-169dp"
         android:layout_marginTop="565dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="85dp"
