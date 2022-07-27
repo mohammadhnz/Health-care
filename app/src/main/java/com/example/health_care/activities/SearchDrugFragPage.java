@@ -83,8 +83,6 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // inside on query text change method we are
-                // calling a method to filter our recycler view.
                 filter(newText);
                 return false;
             }
@@ -100,25 +98,17 @@ public class SearchDrugFragPage extends Fragment implements SearchDugRecyclerAda
 
 
     private void filter(String text) {
-        // creating a new array list to filter our data.
+
         ArrayList<Drug> filteredlist = new ArrayList<>();
 
-        // running a for loop to compare elements.
         for (Drug item : Drug.getDrugs()) {
-            // checking if the entered string matched with any item of our recycler view.
             if (item.getName().toLowerCase().contains(text.toLowerCase())) {
-                // if the item is matched we are
-                // adding it to our filtered list.
                 filteredlist.add(item);
             }
         }
         if (filteredlist.isEmpty()) {
-            // if no item is added in filtered list we are
-            // displaying a toast message as no data found.
             Toast.makeText(rootView.getContext(), "No Data Found..", Toast.LENGTH_SHORT).show();
         } else {
-            // at last we are passing that filtered
-            // list to our adapter class.
             drugAdapter.filterList(filteredlist);
         }
     }

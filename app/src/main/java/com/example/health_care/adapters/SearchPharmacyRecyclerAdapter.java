@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.health_care.R;
+import com.example.health_care.models.Drug;
 import com.example.health_care.models.Pharmacy;
 
 import java.text.ParseException;
@@ -52,6 +53,15 @@ public class SearchPharmacyRecyclerAdapter  extends RecyclerView.Adapter<SearchP
     @Override
     public int getItemCount() {
         return pharmacies.size();
+    }
+
+    public void filterList(ArrayList<Pharmacy> filterllist) {
+        // below line is to add our filtered
+        // list in our course array list.
+        pharmacies = filterllist;
+        // below line is to notify our adapter
+        // as change in recycler view data.
+        notifyDataSetChanged();
     }
 
     @SuppressLint("NotifyDataSetChanged")
