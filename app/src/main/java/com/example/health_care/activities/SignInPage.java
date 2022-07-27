@@ -1,14 +1,16 @@
 package com.example.health_care.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.health_care.R;
 import com.example.health_care.controllers.Exceptions.LoginExceptions;
@@ -39,7 +41,8 @@ public class SignInPage extends AppCompatActivity {
         validationKey = findViewById(R.id.admin_validation_id);
         signInButton = findViewById(R.id.sign_in_button_id);
         alreadyHavAcc = findViewById(R.id.already_hav);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         alreadyHavAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +103,10 @@ public class SignInPage extends AppCompatActivity {
                 }
             }
         });
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        this.finish();
+        return true;
     }
 
     private void setEmptyTextEditors() {

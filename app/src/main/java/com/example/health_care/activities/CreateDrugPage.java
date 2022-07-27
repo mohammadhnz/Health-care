@@ -1,26 +1,18 @@
 package com.example.health_care.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.health_care.Exceptions.PharmacyLoginException;
-import com.example.health_care.PharmacyPanelActivity;
-import com.example.health_care.PharmacyRegisterActivity;
 import com.example.health_care.R;
-import com.example.health_care.controllers.Exceptions.LoginExceptions;
-import com.example.health_care.controllers.Exceptions.LoginOnceException;
-import com.example.health_care.controllers.PharmacyController;
-import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Drug;
-import com.example.health_care.models.Pharmacy;
 
 public class CreateDrugPage extends AppCompatActivity {
     EditText drugName;
@@ -39,7 +31,8 @@ public class CreateDrugPage extends AppCompatActivity {
         drugPrice = findViewById(R.id.drug_price_id);
         drugDescription = findViewById(R.id.drug_desc_id);
         loginButton = findViewById(R.id.create_drug_button);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

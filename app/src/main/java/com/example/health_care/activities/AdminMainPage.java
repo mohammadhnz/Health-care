@@ -1,29 +1,25 @@
 package com.example.health_care.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.health_care.PharmacyPanelActivity;
 import com.example.health_care.R;
 import com.example.health_care.adapters.CustomerMainPageDrugAdapter;
 import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;
 import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Admin;
-import com.example.health_care.models.Customer;
 import com.example.health_care.models.Drug;
-import com.example.health_care.models.Pharmacy;
 
 import java.text.ParseException;
 
@@ -57,6 +53,8 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
         drugAdapter = new CustomerMainPageDrugAdapter(this, Drug.getDrugs(), this);
         markedPharmacyRecycler.setAdapter(drugAdapter);
         drugAdapter.notifyDataSetChanged();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         createDrugBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +63,12 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
             }
         });
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        UserController.getInstance().logout();
+        this.finish();
+        return true;
     }
 
 

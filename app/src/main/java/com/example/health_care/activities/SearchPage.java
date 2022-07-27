@@ -1,20 +1,17 @@
 package com.example.health_care.activities;
 
 import android.os.Bundle;
-
-import com.example.health_care.databinding.ActivitySearchPageBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.health_care.activities.ui.main.SectionsPagerAdapter;
+import com.example.health_care.controllers.UserController;
+import com.example.health_care.databinding.ActivitySearchPageBinding;
+import com.google.android.material.tabs.TabLayout;
+
 public class SearchPage extends AppCompatActivity {
 
     private ActivitySearchPageBinding binding;
@@ -22,7 +19,8 @@ public class SearchPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         binding = ActivitySearchPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -33,4 +31,9 @@ public class SearchPage extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        this.finish();
+        return true;
+    }
+
 }

@@ -1,19 +1,20 @@
 package com.example.health_care.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.health_care.R;
+import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Drug;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
-
-import java.util.Objects;
 
 public class DrugPage extends AppCompatActivity {
 
@@ -29,7 +30,8 @@ public class DrugPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_page);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         drugNameT = findViewById(R.id.drug_page_name_id);
         drugPriceT = findViewById(R.id.drug_page_price);
         drugImage = findViewById(R.id.drug_img_d_recId);
@@ -71,6 +73,11 @@ public class DrugPage extends AppCompatActivity {
 //        });
 
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        this.finish();
+        return true;
+    }
+
 
 
 

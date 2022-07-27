@@ -3,6 +3,7 @@ package com.example.health_care.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +39,6 @@ public class LoginPage extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button_id);
         dontHave = findViewById(R.id.dont_have);
         dontHavePh = findViewById(R.id.sign_in_as_pharmacy);
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
