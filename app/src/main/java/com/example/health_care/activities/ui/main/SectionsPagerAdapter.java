@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.health_care.R;
 import com.example.health_care.activities.SearchDrugFragPage;
 import com.example.health_care.activities.SearchPharmacyFragPage;
-import com.example.health_care.databinding.FragmentSearchPageBinding;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

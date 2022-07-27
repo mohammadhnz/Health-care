@@ -1,21 +1,17 @@
 package com.example.health_care.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.health_care.PharmacyPanelActivity;
 import com.example.health_care.R;
 import com.example.health_care.adapters.CustomerMainPageDrugAdapter;
 import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;

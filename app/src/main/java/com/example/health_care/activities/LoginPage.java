@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.health_care.Exceptions.PharmacyLoginException;
-import com.example.health_care.PharmacyPanelActivity;
+import com.example.health_care.PharmacyPanelInfoActivity;
 import com.example.health_care.PharmacyRegisterActivity;
 import com.example.health_care.R;
 import com.example.health_care.controllers.Exceptions.LoginExceptions;
@@ -49,7 +49,7 @@ public class LoginPage extends AppCompatActivity {
                             PharmacyController.login(username, password);
                             Toast toast = Toast.makeText(LoginPage.this, "login", Toast.LENGTH_SHORT);
                             toast.show();
-                            Intent intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+                            Intent intent = new Intent(LoginPage.this, PharmacyPanelInfoActivity.class);
                             intent.putExtra("username", username);
                             intent.putExtra("password", password);
                             startActivity(intent);
@@ -129,7 +129,7 @@ public class LoginPage extends AppCompatActivity {
 //            );
         }
         else{
-            intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+            intent = new Intent(LoginPage.this, PharmacyPanelInfoActivity.class);
             intent.putExtra("username", loginUsername.getText().toString());
             intent.putExtra("password", loginPassword.getText().toString());
         }

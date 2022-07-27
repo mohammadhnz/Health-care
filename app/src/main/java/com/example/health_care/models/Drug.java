@@ -49,6 +49,10 @@ public class Drug {
         this.photo = photo;
     }
 
+    public static ArrayList<Drug> getDrugs() {
+        return drugs;
+    }
+
     public static Drug findDrugById(String id){
         for (Drug drug : drugs) {
             if (drug.getId().equals(id)){

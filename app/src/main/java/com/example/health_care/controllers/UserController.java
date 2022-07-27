@@ -5,6 +5,7 @@ import com.example.health_care.controllers.Exceptions.LoginOnceException;
 import com.example.health_care.models.Admin;
 import com.example.health_care.models.Customer;
 import com.example.health_care.models.Pharmacy;
+import com.example.health_care.models.PharmacyAdmin;
 import com.example.health_care.models.User;
 
 import java.util.ArrayList;
@@ -15,10 +16,12 @@ public class UserController {
     private ArrayList<Admin> allAdmins = new ArrayList<>();
     private ArrayList<Customer> allCustomers = new ArrayList<>();
     private ArrayList<Pharmacy> allPharmacies = new ArrayList<>();
+    private ArrayList<PharmacyAdmin> allPharmacyAddmins = new ArrayList<>();
 
     private UserController() {
         this.user = null;
     }
+
     public static UserController getInstance() {
         if (userController == null) {
             synchronized (UserController.class) {
@@ -75,6 +78,20 @@ public class UserController {
         return "Successful!";
     }
 
+    public String registerPharmacyAdmin(String username, String password, String firstName, String lastName, String email, Pharmacy pharmacy) {
+        for (PharmacyAdmin user : allPharmacyAddmins) {
+            if (user.getUsername().equals(username.trim())) {
+                return "Error: Student exists with this username";
+            }
+        }
+        if (this.user != null) {
+            return "Error: You already logged in";
+        }
+        //PharmacyAdmin user = new PharmacyAdmin(username, password, email, pharmacy);
+        //this.allPharmacyAddmins.add(user);
+        return "Successful!";
+    }
+
     public String logout() {
         if (this.user == null) {
             return "Error: You are not logged in.";
@@ -108,8 +125,7 @@ public class UserController {
         }
         if (this.user instanceof Customer) {
             return "Customer";
-        }
-        else if (this.user instanceof Admin) {
+        } else if (this.user instanceof Admin) {
             return "Admin";
         }
         return "Pharmacy";
@@ -147,5 +163,13 @@ public class UserController {
 
     public ArrayList<Pharmacy> getAllPharmacies() {
         return allPharmacies;
+    }
+
+    public ArrayList<PharmacyAdmin> getAllPharmacyAddmins() {
+        return allPharmacyAddmins;
+    }
+
+    public void setAllPharmacyAddmins(ArrayList<PharmacyAdmin> allPharmacyAddmins) {
+        this.allPharmacyAddmins = allPharmacyAddmins;
     }
 }
