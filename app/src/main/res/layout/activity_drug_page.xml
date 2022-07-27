@@ -9,7 +9,6 @@
     android:clipToOutline="true"
     android:orientation="vertical">
 
-
     <View
         android:layout_width="412dp"
         android:layout_height="300dp"
@@ -19,35 +18,69 @@
         android:layout_marginBottom="140dp"
         android:background="@drawable/customer_main_page_up" />
 
+    <EditText
+        android:id="@+id/drug_page_name_id"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="-370dp"
+        android:hint="drug name"
+        android:textAlignment="textStart"
+        android:textSize="40sp"
+        android:textAppearance="@style/secure_your"
+        android:textColorHint="#8C8C9C" />
 
     <EditText
         android:id="@+id/drug_page_price"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="textStart"
-        android:textColor="#204A7B"
+        android:textColor="#FFFFFF"
         android:hint="price"
+        android:textAppearance="@style/secure_your"
         android:textColorHint="#8C8C9C" />
 
+
     <ImageView
-        android:id="@+id/drug_img_recId"
+        android:id="@+id/drug_img_d_recId"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="-600dp"
+        android:layout_marginTop="-110dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
         app:srcCompat="@drawable/pngitem_479890" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-55dp"
+        android:fontFamily="@font/playfair_display"
+        android:text="description:"
+        android:textAppearance="@style/get_started"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/drug_des_d_id"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="-25dp"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:hint="description"
+        android:textColorHint="#8C8C9C" />
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_drug_bar_id"
+        android:id="@+id/pharmacy_drug_page_id"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="542dp"
         android:background="@drawable/text_back_3"
@@ -56,45 +89,11 @@
         app:searchIcon="@drawable/search_icon" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_result_id"
+        android:id="@+id/search_result_drug_page"
         android:layout_width="match_parent"
-        android:layout_height="355dp"
+        android:layout_height="350dp"
         android:layout_below="@id/search_drug_bar_id"
         android:layout_marginTop="-530dp"
         android:layout_marginBottom="22dp" />
-
-    <EditText
-        android:id="@+id/drug_des_d_id"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="-580dp"
-        android:textAlignment="textStart"
-        android:textColor="#204A7B"
-        android:hint="description"
-        android:textColorHint="#8C8C9C" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="-90dp"
-        android:fontFamily="@font/playfair_display"
-        android:text="description:"
-        android:textColor="#FFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/drug_page_name_id"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="10dp"
-        android:hint="drug name"
-        android:textAlignment="textStart"
-        android:textSize="40sp"
-        android:textColor="#204A7B"
-        android:textColorHint="#8C8C9C" />
 
 </LinearLayout>
