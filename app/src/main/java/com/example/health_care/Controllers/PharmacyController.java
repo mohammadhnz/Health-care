@@ -70,10 +70,6 @@ public class PharmacyController {
     public static ArrayList<Drug> getPharmacyDrugs(String username, String password) throws PharmacyGetDrugsExceptions {
         PharmacyAdmin user = PharmacyAdmin.getByInfo(username, password);
         if (user != null) {
-            //
-            new Drug("12", "degz", 12.2, "desc");
-            user.getPharmacy().addDrug("12");
-            //
             return user.getPharmacy().getDrugs();
         }
         throw new PharmacyGetDrugsExceptions("not found User!!");
