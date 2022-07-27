@@ -59,8 +59,8 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
         customer.addBookmarkPharmacy(pharmacy3);
 
         Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
-        Drug drug2 = new Drug("id1", "n1", 1.0, "des 1");
-        Drug drug3 = new Drug("id1", "n1", 1.0, "des 1");
+        Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
+        Drug drug3 = new Drug("id3", "n3", 3.0, "des 1");
         customer.addBookmarkDrug(drug1);
         customer.addBookmarkDrug(drug1);
         customer.addBookmarkDrug(drug1);

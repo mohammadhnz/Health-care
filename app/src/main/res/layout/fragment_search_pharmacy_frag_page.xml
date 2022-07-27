@@ -75,7 +75,7 @@
         android:background="@drawable/circle" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/search_drug_button_id"
+        android:id="@+id/search_phar_button_id"
         android:layout_width="78.36dp"
         android:layout_height="52.92dp"
         android:layout_marginStart="295dp"
@@ -92,7 +92,7 @@
 
 
     <EditText
-        android:id="@+id/search_drug_bar_id"
+        android:id="@+id/search_phar_bar_id"
         android:layout_width="344dp"
         android:layout_height="70dp"
         android:layout_marginStart="40dp"
@@ -106,7 +106,7 @@
         android:textColorHint="#8C8C9C" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topCell"
+        android:id="@+id/phar_search_result_id"
         android:layout_width="335dp"
         android:layout_height="471dp"
         android:layout_alignParentLeft="true"
@@ -114,8 +114,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="216dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/customer_main_page_cell1" />
+        android:layout_marginBottom="22dp" />
 
     <TextView
         android:id="@+id/search_medi"

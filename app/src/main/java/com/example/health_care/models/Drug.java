@@ -57,4 +57,8 @@ public class Drug {
         }
         return null;
     }
+
+    public static ArrayList<Drug> getDrugs() {
+        return drugs;
+    }
 }

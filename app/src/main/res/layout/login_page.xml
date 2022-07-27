@@ -14,7 +14,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="331dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center_horizontal|top"
         android:text="@string/welcome"
@@ -25,7 +25,7 @@
         android:id="@+id/login_username_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="395dp"
+        android:layout_marginTop="320dp"
         android:layout_marginStart="-300dp"
         android:layout_marginEnd="61dp"
         android:background="@drawable/text_back_3"
@@ -39,7 +39,7 @@
         android:id="@+id/login_password_id"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="458dp"
+        android:layout_marginTop="385dp"
         android:layout_marginEnd="60dp"
         android:layout_marginStart="-354dp"
         android:background="@drawable/text_back_3"
@@ -52,23 +52,34 @@
         android:layout_width="351dp"
         android:layout_height="338dp"
         android:layout_marginStart="-400dp"
-        android:layout_marginTop="-117dp"
+        android:layout_marginTop="-140dp"
         android:background="@drawable/circle2" />
 
     <View
         android:layout_width="360dp"
         android:layout_height="353dp"
         android:layout_marginStart="-480dp"
-        android:layout_marginTop="-13dp"
+        android:layout_marginTop="-80dp"
         android:background="@drawable/circle" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button_id"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="-100dp"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/dont_have"
         android:layout_width="267dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-169dp"
-        android:layout_marginTop="565dp"
+        android:layout_marginStart="-200dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="85dp"
         android:fontFamily="@font/playfair_display"
@@ -83,7 +94,7 @@
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-328dp"
-        android:layout_marginTop="610dp"
+        android:layout_marginTop="540dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="55dp"
         android:fontFamily="@font/playfair_display"
@@ -93,17 +104,6 @@
         android:textIsSelectable="true"
         android:textSize="18sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button_id"
-        android:layout_width="126dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="-262dp"
-        android:layout_marginTop="517dp"
-        android:background="@drawable/button_style"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="Login"
-        android:textColor="#FFFFFF" />
 
 
 </LinearLayout>
