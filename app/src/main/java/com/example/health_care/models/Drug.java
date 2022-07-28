@@ -77,6 +77,23 @@ public class Drug {
         return null;
     }
 
+    public static Drug removeDrug(String id) {
+        Drug checkDrug = null;
+        for (Drug drug : drugs) {
+            if (drug.getId().equals(id)) {
+                checkDrug = drug;
+                break;
+            }
+        }
+        if (checkDrug != null) {
+            Drug.drugs.remove(checkDrug);
+            Pharmacy.removeDrugFromAllPharmacy(checkDrug);
+            return checkDrug;
+        }
+        return null;
+    }
+
+
     public static ArrayList<Drug> getDrugs() {
         return drugs;
     }

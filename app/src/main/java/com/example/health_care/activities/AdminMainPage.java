@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +24,12 @@ import com.example.health_care.models.Drug;
 
 import java.text.ParseException;
 
-public class AdminMainPage extends AppCompatActivity implements CustomerMainPagePharmacyAdapter.OnNoteListener, CustomerMainPageDrugAdapter.OnNoteListenerDrug{
+public class AdminMainPage extends AppCompatActivity implements CustomerMainPagePharmacyAdapter.OnNoteListener, CustomerMainPageDrugAdapter.OnNoteListenerDrug {
     RecyclerView markedPharmacyRecycler;
     RecyclerView markedDrugRecycler;
     Button getStartedBtn;
     Button createDrugBtn;
+    Button deleteDrugBtn;
     ImageView personalInfoIcon;
     ImageView settingIcon;
     Admin admin;
@@ -44,7 +46,7 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
         createDrugBtn = findViewById(R.id.create_drug);
         personalInfoIcon = findViewById(R.id.persona_icon_id);
         settingIcon = findViewById(R.id.setting_icon_id);
-
+        deleteDrugBtn = findViewById(R.id.delete_drug);
         admin = (Admin) UserController.getInstance().getCurrentUser();
         Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
         Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
@@ -59,13 +61,30 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AdminMainPage.this, CreateDrugPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("deleted", "0");
+                startActivity(intent);
+            }
+        });
+        deleteDrugBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminMainPage.this, CreateDrugPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("deleted", "1");
                 startActivity(intent);
             }
         });
 
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    @Override
+    protected void onRestart() {
+        drugAdapter.notifyDataSetChanged();
+        super.onRestart();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
         UserController.getInstance().logout();
         this.finish();
         return true;

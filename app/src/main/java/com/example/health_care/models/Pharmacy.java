@@ -48,6 +48,15 @@ public class Pharmacy {
         return null;
     }
 
+    public static void removeDrugFromAllPharmacy(Drug checkDrug) {
+        for (Pharmacy pharmacy : pharmacies
+        ) {
+            if (pharmacy.drugs.contains(checkDrug)) {
+                pharmacy.drugs.remove(checkDrug);
+            }
+        }
+    }
+
     public void addDrugToPharmacy(String id, String name, double price, String description) {
         drugs.add(new Drug(id, name, price, description));
     }
@@ -136,4 +145,18 @@ public class Pharmacy {
         throw new PharmacyGetDrugsExceptions("not found drug!!");
     }
 
+    public void removeDrug(String nameOrId) throws PharmacyGetDrugsExceptions {
+        Drug check_drug = null;
+        for (Drug drug : this.getDrugs()
+        ) {
+            if (drug.getId().equals(nameOrId) || drug.getName().equals(nameOrId)) {
+                check_drug = drug;
+            }
+        }
+        if (check_drug != null) {
+            this.drugs.remove(check_drug);
+        } else {
+            throw new PharmacyGetDrugsExceptions("not found drug!!");
+        }
+    }
 }

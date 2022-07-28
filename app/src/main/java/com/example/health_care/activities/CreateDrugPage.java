@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +33,15 @@ public class CreateDrugPage extends AppCompatActivity {
         drugPrice = findViewById(R.id.drug_price_id);
         drugDescription = findViewById(R.id.drug_desc_id);
         loginButton = findViewById(R.id.create_drug_button);
+        Intent myIntent = getIntent();
+        String deleted = myIntent.getStringExtra("deleted");
+        if (deleted.equals("1")) {
+            drugName.setVisibility(View.INVISIBLE);
+            drugPrice.setVisibility(View.INVISIBLE);
+            drugDescription.setVisibility(View.INVISIBLE);
+            loginButton.setText("Delete Drug");
+            loginButton.setBackgroundColor(Color.RED);
+        }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +51,17 @@ public class CreateDrugPage extends AppCompatActivity {
                 String drugPriceValue = drugPrice.getText().toString();
                 String drugDescriptionValue = drugDescription.getText().toString();
                 String drugIdValue = drugId.getText().toString();
+                if (deleted.equals("1")) {
+                    if (!drugIdValue.isEmpty() && drugIdValue != null) {
+                        Drug drug = Drug.removeDrug(drugIdValue);
+                        if (drug == null){
+                            createToast("There is no drug with this id");
+                        }else {
+                            createToast("Drug deleted successfully");
+                        }
+                    }
+                    return;
+                }
                 if (validateData(drugNameValue, drugPriceValue, drugDescriptionValue, drugIdValue)) {
                     new Drug(drugIdValue, drugNameValue, Float.parseFloat(drugPriceValue), drugDescriptionValue);
                     Toast toast = Toast.makeText(CreateDrugPage.this, "drug has been created.", Toast.LENGTH_SHORT);

@@ -106,6 +106,19 @@
         android:text="Create Drug"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+    <Button
+        android:id="@+id/delete_drug"
+        android:layout_width="279dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="-220dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="251dp"
+        android:background="@drawable/customer_main_page_cell1"
+        android:orientation="horizontal"
+        android:text="Delete Drug"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
     <TextView
         android:id="@+id/secure_your"
         android:layout_width="317dp"
@@ -138,7 +151,7 @@
         android:layout_width="104dp"
         android:layout_height="82dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/get_started_btn_style"
         android:fontFamily="@font/playfair_display"
         android:text="Manage Drugs"
@@ -148,9 +161,9 @@
         android:id="@+id/persona_icon_id"
         android:layout_width="43dp"
         android:layout_height="38dp"
-        android:layout_marginTop="-130dp"
-        android:layout_marginEnd="57dp"
         android:layout_marginStart="300dp"
+        android:layout_marginTop="-125dp"
+        android:layout_marginEnd="57dp"
         android:layout_marginBottom="677dp"
         android:backgroundTint="#0C0505"
         android:backgroundTintMode="multiply"
@@ -161,9 +174,9 @@
         android:layout_width="40dp"
         android:layout_height="38dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginTop="-715dp"
+        android:layout_marginTop="-713dp"
         android:layout_marginStart="360dp"
-        android:layout_marginBottom="662dp"
+        android:layout_marginBottom="677dp"
         app:srcCompat="@drawable/pngitem_1428153" />
 
     <View

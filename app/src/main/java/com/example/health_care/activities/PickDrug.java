@@ -1,6 +1,9 @@
 package com.example.health_care.activities;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
-import com.example.health_care.Exceptions.PharmacyLoginException;
 import com.example.health_care.R;
 import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Drug;
@@ -27,9 +29,15 @@ public class PickDrug extends AppCompatActivity {
         findViewById(R.id.drug_id).setVisibility(View.INVISIBLE);
         findViewById(R.id.drug_price_id).setVisibility(View.INVISIBLE);
         findViewById(R.id.drug_desc_id).setVisibility(View.INVISIBLE);
+        Intent myIntent = getIntent();
+        String deleted = myIntent.getStringExtra("deleted");
         loginButton = findViewById(R.id.create_drug_button);
         drugName = findViewById(R.id.drug_name);
         loginButton = findViewById(R.id.create_drug_button);
+        if (deleted.equals("1")) {
+            loginButton.setText("Deleted Drug");
+            loginButton.setBackgroundColor(Color.RED);
+        }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -37,29 +45,38 @@ public class PickDrug extends AppCompatActivity {
             public void onClick(View view) {
                 String drugNameValue = drugName.getText().toString();
                 if (!drugNameValue.isEmpty() && drugNameValue != null) {
-                    Drug drug = Drug.findByName(drugNameValue);
-                    if (drug == null) {
-                        createToast("Invalid Drug name!");
-                        return;
-                    }
                     PharmacyAdmin pharmacy = (PharmacyAdmin) UserController.getInstance().getCurrentUser();
-                    try {
-                        pharmacy.getPharmacy().addDrug(drugNameValue);
-                    } catch (PharmacyGetDrugsExceptions e) {
-                        e.printStackTrace();
+                    if (deleted.equals("1")) {
+                        try {
+                            pharmacy.getPharmacy().removeDrug(drugNameValue);
+                            createToast("Drug has been deleted.");
+                            finish();
+                        } catch (PharmacyGetDrugsExceptions e) {
+                            createToast("Drug does not exists in out drug list.");
+                        }
+                    } else {
+                        Drug drug = Drug.findByName(drugNameValue);
+                        if (drug == null) {
+                            createToast("Invalid Drug name!");
+                            return;
+                        }
+                        try {
+                            pharmacy.getPharmacy().addDrug(drugNameValue);
+                        } catch (PharmacyGetDrugsExceptions e) {
+                            createToast("Drug does not exists in out drug list.");
+                        }
+                        finish();
                     }
-                    finish();
                 } else {
-                    createToast("Invalid drug name");
+                    createToast("Empty drug name");
                 }
             }
         });
     }
 
-
-    protected void showNotFoundError(PharmacyLoginException e) {
-        Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
-        toast.show();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        this.finish();
+        return true;
     }
 
     private boolean isEmptyInput(String username, String password) {
