@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".activities.UserSettingPage">
+    tools:context=".activities.AdiminSettingPage">
 
 
     <androidx.cardview.widget.CardView
@@ -26,7 +25,7 @@
         tools:layout_editor_absoluteY="33dp">
 
 <!--        <Button-->
-<!--            android:id="@+id/user_add_image_button"-->
+<!--            android:id="@+id/admin_add_image_button"-->
 <!--            android:layout_width="50dp"-->
 <!--            android:layout_height="50dp"-->
 <!--            android:layout_marginTop="150dp"-->
@@ -40,7 +39,7 @@
 <!--            tools:ignore="MissingConstraints" />-->
 
         <ImageView
-            android:id="@+id/user_image_setting"
+            android:id="@+id/admin_image_setting"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp"
@@ -67,7 +66,7 @@
 
 
     <EditText
-        android:id="@+id/edit_name"
+        android:id="@+id/admin_edit_name"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="377dp"
@@ -80,7 +79,7 @@
         android:textColorHint="#8C8C9C" />
 
     <EditText
-        android:id="@+id/edit_password"
+        android:id="@+id/admin_edit_password"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
@@ -93,7 +92,7 @@
         android:textColorHint="#8C8C9C" />
 
     <EditText
-        android:id="@+id/edit_email"
+        android:id="@+id/admin_edit_email"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="520dp"
@@ -106,7 +105,7 @@
         android:textColorHint="#8C8C9C" />
 
     <Button
-        android:id="@+id/edit_btn"
+        android:id="@+id/admin_edit_btn"
         android:layout_width="126dp"
         android:layout_height="48dp"
         android:layout_marginStart="-345dp"
@@ -116,7 +115,7 @@
         android:text="Edit" />
 
     <Button
-        android:id="@+id/cancel_btn"
+        android:id="@+id/admin_cancel_btn"
         android:layout_width="126dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
@@ -127,33 +126,27 @@
 
     <TextView
         android:layout_width="300dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="-250dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="-280dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/playfair_display"
-        android:text="User Setting"
+        android:text="Admin Setting"
         android:textAppearance="@style/pharmacies_"
         android:textSize="40sp"
         />
 
+
     <TextView
-        android:id="@+id/userInfoInSetting"
+        android:id="@+id/adminInfoSetting"
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:layout_marginStart="-180dp"
+        android:layout_marginStart="-150dp"
         android:layout_marginTop="150dp"
         android:fontFamily="@font/playfair_display"
         android:hint="user Info"
+        android:text="user Setting"
         android:textAppearance="@style/pharmacies_"
         android:textSize="20sp" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/test_img"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:layout_marginEnd="0dp"-->
-<!--        android:layout_marginBottom="0dp"-->
-<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
 </LinearLayout>

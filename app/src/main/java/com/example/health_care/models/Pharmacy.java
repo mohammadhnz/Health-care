@@ -1,5 +1,6 @@
 package com.example.health_care.models;
 
+import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
 import com.example.health_care.models.Drug;
 
 import java.util.ArrayList;
@@ -127,7 +128,17 @@ public class Pharmacy {
         throw new PharmacyGetDrugsExceptions("not found drug!!");
     }
 
-    public void addDrugToPharmacy(Drug drug){
+    public static Pharmacy findByInfo(String name, String address) {
+        for (Pharmacy pharmacy : pharmacies
+        ) {
+            if (pharmacy.getName().equals(name) && pharmacy.getLocation().equals(address)) {
+                return pharmacy;
+            }
+        }
+        return null;
+    }
+
+    public void addDrugToPharmacy(Drug drug) throws PharmacyGetDrugsExceptions {
         drugs.add(drug);
         throw new PharmacyGetDrugsExceptions("not found drug!!");
     }

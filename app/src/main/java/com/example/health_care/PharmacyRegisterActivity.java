@@ -19,7 +19,7 @@ import com.example.health_care.Exceptions.PharmacyAdminRegisterException;
 import com.example.health_care.Exceptions.PharmacyRegisterException;
 import com.example.health_care.models.Admin;
 import com.example.health_care.models.User;
-import com.google.android.gms.maps.MapView;
+//import com.google.android.gms.maps.MapView;
 
 public class PharmacyRegisterActivity extends AppCompatActivity {
     EditText username;

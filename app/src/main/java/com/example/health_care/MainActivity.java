@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         final Runnable startFirstPage = new Runnable() {
             public void run() {
                 //Database.getInstance().retrieveAllData(getSharedPreferences(preferencesKey, Context.MODE_PRIVATE));
-                Intent intent = new Intent(MainActivity.this, UserSettingPage.class);
+                Intent intent = new Intent(MainActivity.this, LoginPage.class);
                 startActivity(intent);
                 finish();
             }

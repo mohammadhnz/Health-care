@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -42,6 +43,7 @@ public class UserSettingPage extends AppCompatActivity {
     EditText editName;
     EditText editPass;
     EditText editEmail;
+    TextView userInfoInSetting;
     Button editBtn;
     Button cancelBtn;
     int SELECT_PICTURE = 200;
@@ -54,16 +56,19 @@ public class UserSettingPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_setting_page);
 
-        addImageButton = findViewById(R.id.user_add_image_button);
+        //addImageButton = findViewById(R.id.user_add_image_button);
         customerImage = findViewById(R.id.user_image_setting);
         editName = findViewById(R.id.edit_name);
         editPass = findViewById(R.id.edit_password);
         editEmail = findViewById(R.id.edit_email);
         editBtn = findViewById(R.id.edit_btn);
-        testImg = findViewById(R.id.test_img);
         cancelBtn = findViewById(R.id.cancel_btn);
+        userInfoInSetting = findViewById(R.id.userInfoInSetting);
 
         Customer customerWithPrev = (Customer) UserController.getInstance().getCurrentUser();
+
+        String info = "name: " + customerWithPrev.getFirstName() + "\n" + "password: " + customerWithPrev.getPassword() + "\n" + "email: " + customerWithPrev.getEmail();
+        userInfoInSetting.setText(info);
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,8 +91,6 @@ public class UserSettingPage extends AppCompatActivity {
                         if (!editEmail.getText().toString().isEmpty()) {
                             customerWithPrev.setEmail(editEmail.getText().toString());
                             t = true;
-                        } else {
-                            Toast.makeText(UserSettingPage.this, "No Changes Were Made", Toast.LENGTH_LONG).show();
                         }
                         if (t) {
                             Toast.makeText(UserSettingPage.this, "changes applied", Toast.LENGTH_LONG).show();
@@ -101,25 +104,40 @@ public class UserSettingPage extends AppCompatActivity {
                         toast.show();
                     }
                 });
+                alertSubmit.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    public void onDismiss(DialogInterface dialog) {
+                        String info = "name: " + customerWithPrev.getFirstName() + "\n" + "password: " + customerWithPrev.getPassword() + "\n" + "email: " + customerWithPrev.getEmail();
+                        userInfoInSetting.setText(info);
+                    }
+                });
                 alertSubmit.show();
 
 
             }
         });
 
-        addImageButton.setOnClickListener(new View.OnClickListener() {
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(Intent.createChooser(photoPickerIntent, "Select Picture"), SELECT_PICTURE);
-//                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-//                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                // Start the Intent
-//                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+                Intent intent1 = new Intent();
+                setResult(100, intent1);
+                finish();
             }
         });
+
+//        addImageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+//                photoPickerIntent.setType("image/*");
+//                startActivityForResult(Intent.createChooser(photoPickerIntent, "Select Picture"), SELECT_PICTURE);
+////                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+////                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+////                // Start the Intent
+////                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+//            }
+//        });
 
     }
 
@@ -208,9 +226,9 @@ public class UserSettingPage extends AppCompatActivity {
 
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 
-            ImageView myImage = (ImageView) findViewById(R.id.test_img);
-
-            myImage.setImageBitmap(myBitmap);
+//            ImageView myImage = (ImageView) findViewById(R.id.test_img);
+//
+//            myImage.setImageBitmap(myBitmap);
 
         }
     }
