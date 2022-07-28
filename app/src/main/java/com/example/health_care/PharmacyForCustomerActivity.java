@@ -24,9 +24,6 @@ import java.util.HashMap;
 
 public class PharmacyForCustomerActivity extends AppCompatActivity implements PharmacyMainPageDrugAdapter.OnNoteListenerDrug {
     Button back;
-    TextView username;
-    TextView fullName;
-    String password;
     TextView phone;
     TextView address;
     TextView pharmacyName;
@@ -40,22 +37,17 @@ public class PharmacyForCustomerActivity extends AppCompatActivity implements Ph
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy_for_customer_panel);
         Intent intent = getIntent();
-        password = intent.getStringExtra("password");
+        String username = intent.getStringExtra("username");
+        String password = intent.getStringExtra("password");
         back = findViewById(R.id.back_button_pharmacy_panel_customer);
-        username = findViewById(R.id.pharmacy_panel_username_customer);
-        fullName = findViewById(R.id.pharmacy_panel_name_customer);
         phone = findViewById(R.id.pharmacy_panel_phone_customer);
         address = findViewById(R.id.pharmacy_panel_address_customer);
         pharmacyName = findViewById(R.id.pharmacy_panel_pharmacy_name_customer);
         recyclerView = findViewById(R.id.pharmacy_panel_drugs_customer);
 
 
-        username.setText(
-                intent.getStringExtra("username").toString()
-        );
-
         try {
-            drugs = com.example.health_care.controllers.PharmacyController.getPharmacyDrugs(username.getText().toString(), password);
+            drugs = com.example.health_care.controllers.PharmacyController.getPharmacyDrugs(username.toString(), password);
         } catch (PharmacyGetDrugsExceptions e) {
             Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
@@ -73,13 +65,6 @@ public class PharmacyForCustomerActivity extends AppCompatActivity implements Ph
             Toast toast = Toast.makeText(PharmacyForCustomerActivity.this, "not found", Toast.LENGTH_SHORT);
             toast.show();
         }
-        username.setText(
-                info.get("username")
-        );
-        fullName.setText(
-                info.get("fullName")
-        );
-
         address.setText(
                 info.get("address")
         );

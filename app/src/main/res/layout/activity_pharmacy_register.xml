@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:orientation="vertical">
 
@@ -19,83 +20,118 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="firstname"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextTextPersonLastName"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="lastname"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
 
     <EditText
         android:id="@+id/editTextPharmacyUsername"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
 
     <EditText
         android:id="@+id/editTextPharmacyPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="@string/password"
-        android:inputType="textPersonName" />
+        android:inputType="textPassword"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextPharmacyPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="phone number"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextPharmacyAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Address"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextPharmacyName"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Pharmacy Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextPharmacyEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <EditText
         android:id="@+id/editTextPharmacyHours"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="hours"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@drawable/text_back_3"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C"/>
 
     <Button
         android:id="@+id/buttonRegisterPharmacy"
-        android:layout_width="match_parent"
+        android:layout_width="183dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="Register" />
+
+    <TextView
+        android:id="@+id/textViewPharmacyRegisterBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="login" />
 
 
 </LinearLayout>

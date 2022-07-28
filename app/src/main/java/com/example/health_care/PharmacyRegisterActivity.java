@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.health_care.activities.CustomerMainPage;
+import com.example.health_care.activities.LoginPage;
 import com.example.health_care.activities.SignInPage;
 import com.example.health_care.controllers.PharmacyController;
 import com.example.health_care.Exceptions.PharmacyAdminRegisterException;
@@ -31,6 +32,7 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     EditText validationKey;
+    TextView loginBack;
     EditText hours;
     Button registerButton;
     TextView alreadyHavAcc;
@@ -51,6 +53,15 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextPharmacyEmail);
         registerButton = findViewById(R.id.buttonRegisterPharmacy);
         hours = findViewById(R.id.editTextPharmacyHours);
+        loginBack = findViewById(R.id.textViewPharmacyRegisterBack);
+
+        loginBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PharmacyRegisterActivity.this, LoginPage.class);
+                startActivity(intent);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
