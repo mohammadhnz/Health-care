@@ -61,6 +61,10 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
         Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
         Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
         Drug drug3 = new Drug("id3", "n3", 3.0, "des 1");
+
+        pharmacy1.addDrugToPharmacy(drug1);
+        pharmacy2.addDrugToPharmacy(drug1);
+
         customer.addBookmarkDrug(drug1);
         customer.addBookmarkDrug(drug2);
         customer.addBookmarkDrug(drug3);
@@ -85,17 +89,36 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
             }
         });
 
+        personalInfoIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerMainPage.this, UserSettingPage.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void OnNoteListener(ImageView icon, TextView pharmacyName, int position) {
-
+        // TODO: go to pharmacy page
     }
 
     @Override
     public void OnNoteListenerDrug(ImageView icon, TextView drugName, TextView drugPrice, int position) throws ParseException {
-
+        Toast toast = Toast.makeText(this, "CLICKED", Toast.LENGTH_SHORT);
+        toast.show();
+        Intent intent = new Intent(
+                CustomerMainPage.this,
+                DrugPage.class
+        );
+        Drug drug = customer.getCustomerDrugSearches().get(position);
+        Customer customer = (Customer) UserController.getInstance().getCurrentUser();
+        customer.addBookmarkDrug(drug);
+        intent.putExtra("drugId", String.valueOf(drug.getId()));
+        startActivity(intent);
     }
 }

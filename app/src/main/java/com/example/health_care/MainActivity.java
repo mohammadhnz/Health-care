@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.health_care.activities.LoginPage;
 import com.example.health_care.activities.SearchPage;
+import com.example.health_care.activities.UserSettingPage;
 import com.example.health_care.models.Customer;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         final Runnable startFirstPage = new Runnable() {
             public void run() {
                 //Database.getInstance().retrieveAllData(getSharedPreferences(preferencesKey, Context.MODE_PRIVATE));
-                Intent intent = new Intent(MainActivity.this, LoginPage.class);
+                Intent intent = new Intent(MainActivity.this, UserSettingPage.class);
                 startActivity(intent);
                 finish();
             }

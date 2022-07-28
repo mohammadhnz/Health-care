@@ -50,6 +50,14 @@ public class SearchPharmacyRecyclerAdapter  extends RecyclerView.Adapter<SearchP
         //holder.icon.setImageResource(resourceID);
     }
 
+    public void setPharmacies(ArrayList<Pharmacy> pharmacies) {
+        this.pharmacies = pharmacies;
+    }
+
+    public ArrayList<Pharmacy> getPharmacies() {
+        return pharmacies;
+    }
+
     @Override
     public int getItemCount() {
         return pharmacies.size();

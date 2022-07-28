@@ -114,6 +114,6 @@ public class SearchPharmacyFragPage extends Fragment implements SearchPharmacyRe
 
     @Override
     public void OnNoteListener(ImageView icon, TextView pharmacyName, int position) throws ParseException {
-
+        // TODO: go to pharmacy page
     }
 }

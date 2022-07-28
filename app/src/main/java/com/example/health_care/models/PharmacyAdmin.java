@@ -29,6 +29,6 @@ public class PharmacyAdmin extends User{
     }
 
     public void addDrugToPharmacy(String id, String name, double price, String description){
-        pharmacy.addDrugToPharmacy(id,name,price,description);
+        pharmacy.addDrugToPharmacy(new Drug(id,name, price, description));
     }
 }
