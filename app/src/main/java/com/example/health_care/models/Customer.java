@@ -1,5 +1,7 @@
 package com.example.health_care.models;
 
+import android.database.Cursor;
+
 import java.util.ArrayList;
 
 public class Customer extends User {
@@ -10,6 +12,20 @@ public class Customer extends User {
 
     public Customer(String username, String password, String firstName, String email) {
         super(username, password, firstName, email);
+        DBHelper.getDbHelper().insertCustomerData(username, password, firstName, email);
+    }
+
+    public Customer(String username, String password, String firstName, String email, boolean sth) {
+        super(username, password, firstName, email);
+    }
+
+    public static void initialize() {
+        Cursor res = DBHelper.getDbHelper().getCustomerdata();
+        if (res.getCount() > 0) {
+            while (res.moveToNext()) {
+                new Customer(res.getString(0), res.getString(1), res.getString(2), res.getString(3), false);
+            }
+        }
     }
 
     public void addBookmarkPharmacy(Pharmacy pharmacy) {

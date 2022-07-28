@@ -48,9 +48,6 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
         settingIcon = findViewById(R.id.setting_icon_id);
         deleteDrugBtn = findViewById(R.id.delete_drug);
         admin = (Admin) UserController.getInstance().getCurrentUser();
-        Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
-        Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
-        Drug drug3 = new Drug("id3", "n3", 3.0, "des 1");
         markedPharmacyRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         drugAdapter = new CustomerMainPageDrugAdapter(this, Drug.getDrugs(), this);
         markedPharmacyRecycler.setAdapter(drugAdapter);

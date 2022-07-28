@@ -1,5 +1,7 @@
 package com.example.health_care.models;
 
+import android.database.Cursor;
+
 import java.util.ArrayList;
 
 public class Drug {
@@ -15,7 +17,25 @@ public class Drug {
         this.name = name;
         this.price = price;
         this.description = description;
+        DBHelper.getDbHelper().insertDrugData(id, name, price, description);
         drugs.add(this);
+    }
+
+    public Drug(String id, String name, double price, String description, boolean dont_write_in_db) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        drugs.add(this);
+    }
+
+    public static void initialize() {
+        Cursor res = DBHelper.getDbHelper().getDrugdata();
+        if (res.getCount() > 0) {
+            while (res.moveToNext()) {
+                new Drug(res.getString(0), res.getString(1), Float.parseFloat(res.getString(2)), res.getString(3), false);
+            }
+        }
     }
 
     public String getId() {
