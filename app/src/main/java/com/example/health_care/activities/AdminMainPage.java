@@ -72,6 +72,13 @@ public class AdminMainPage extends AppCompatActivity implements CustomerMainPage
                 startActivity(intent);
             }
         });
+        personalInfoIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminMainPage.this, AdminMainPage.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

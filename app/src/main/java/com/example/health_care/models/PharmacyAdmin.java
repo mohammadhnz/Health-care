@@ -1,5 +1,7 @@
 package com.example.health_care.models;
 
+import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
+
 import java.util.ArrayList;
 
 public class PharmacyAdmin extends User {
@@ -31,7 +33,8 @@ public class PharmacyAdmin extends User {
         return null;
     }
 
-    public void addDrugToPharmacy(String id, String name, double price, String description) {
-        pharmacy.addDrugToPharmacy(id, name, price, description);
+
+    public void addDrugToPharmacy(Drug drug) throws PharmacyGetDrugsExceptions {
+        pharmacy.addDrugToPharmacy(drug);
     }
 }

@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
 import com.example.health_care.R;
 import com.example.health_care.adapters.CustomerMainPageDrugAdapter;
 import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;
@@ -29,7 +31,7 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
     RecyclerView markedDrugRecycler;
     Button getStartedBtn;
     ImageView personalInfoIcon;
-    ImageView settingIcon;
+    ImageView covid_prediction_icon;
     Customer customer;
     CustomerMainPagePharmacyAdapter pharmacyAdapter;
     CustomerMainPageDrugAdapter drugAdapter;
@@ -45,7 +47,7 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
         markedDrugRecycler = findViewById(R.id.botton_recycler_id);
         getStartedBtn = findViewById(R.id.get_started_button_id);
         personalInfoIcon = findViewById(R.id.persona_icon_id);
-        settingIcon = findViewById(R.id.setting_icon_id);
+        covid_prediction_icon = findViewById(R.id.covid_prediction_icon);
 
         customer = (Customer) UserController.getInstance().getCurrentUser();
 
@@ -60,6 +62,18 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
         Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
         Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
         Drug drug3 = new Drug("id3", "n3", 3.0, "des 1");
+
+        try {
+            pharmacy1.addDrugToPharmacy(drug1);
+        } catch (PharmacyGetDrugsExceptions pharmacyGetDrugsExceptions) {
+            pharmacyGetDrugsExceptions.printStackTrace();
+        }
+        try {
+            pharmacy2.addDrugToPharmacy(drug1);
+        } catch (PharmacyGetDrugsExceptions pharmacyGetDrugsExceptions) {
+            pharmacyGetDrugsExceptions.printStackTrace();
+        }
+
         customer.addBookmarkDrug(drug1);
         customer.addBookmarkDrug(drug2);
         customer.addBookmarkDrug(drug3);
@@ -84,18 +98,44 @@ public class CustomerMainPage extends AppCompatActivity implements CustomerMainP
             }
         });
 
+        personalInfoIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerMainPage.this, UserSettingPage.class);
+                startActivity(intent);
+            }
+        });
+
+        covid_prediction_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerMainPage.this, CoviidQue.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void OnNoteListener(ImageView icon, TextView pharmacyName, int position) {
-
+        // TODO: go to pharmacy page
     }
 
     @Override
     public void OnNoteListenerDrug(ImageView icon, TextView drugName, TextView drugPrice, int position) throws ParseException {
-
+        Toast toast = Toast.makeText(this, "CLICKED", Toast.LENGTH_SHORT);
+        toast.show();
+        Intent intent = new Intent(
+                CustomerMainPage.this,
+                DrugPage.class
+        );
+        Drug drug = customer.getCustomerDrugSearches().get(position);
+        Customer customer = (Customer) UserController.getInstance().getCurrentUser();
+        customer.addBookmarkDrug(drug);
+        intent.putExtra("drugId", String.valueOf(drug.getId()));
+        startActivity(intent);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){

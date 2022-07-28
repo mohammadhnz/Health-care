@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".activities.UserSettingPage">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view2"
+        android:layout_width="410dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="494dp"
+        android:elevation="12dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardCornerRadius="40dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="33dp">
+
+
+        <ImageView
+            android:id="@+id/user_image_setting"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:layout_marginTop="-120dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            tools:srcCompat="@drawable/pharmacy_store" />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="-500dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/circle2" />
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="-300dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/circle" />
+
+
+    <TextView
+        android:id="@+id/p_currentInfo"
+        android:layout_width="292dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginStart="-590dp"
+        android:layout_marginEnd="61dp"
+        android:text="location is : "
+        android:inputType="phone"
+        android:fontFamily="@font/playfair_display"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
+
+    <EditText
+        android:id="@+id/p_phone_edit"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginStart="-355dp"
+        android:layout_marginEnd="61dp"
+        android:background="@drawable/text_back_3"
+        android:hint="phone number"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
+
+    <EditText
+        android:id="@+id/p_email"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginStart="-355dp"
+        android:layout_marginEnd="61dp"
+        android:background="@drawable/text_back_3"
+        android:hint="email"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B"
+        android:textColorHint="#8C8C9C" />
+
+
+
+    <TextView
+        android:id="@+id/p_name_setting"
+        android:layout_width="292dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="-350dp"
+        android:layout_marginEnd="61dp"
+        android:text="pharmacy name"
+        android:textSize="30dp"
+        android:textAlignment="textStart"
+        android:textColor="#204A7B"
+        android:fontFamily="@font/playfair_display"
+        android:textColorHint="#8C8C9C" />
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="-345dp"
+        android:layout_marginTop="620dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="620dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif"
+        android:text="Cancel" />
+
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="-300dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/circle2" />
+
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="-400dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/circle" />
+
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/test_img"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="0dp"-->
+    <!--        android:layout_marginEnd="0dp"-->
+    <!--        android:layout_marginBottom="0dp"-->
+    <!--        tools:srcCompat="@tools:sample/avatars" />-->
+
+</LinearLayout>

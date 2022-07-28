@@ -1,6 +1,7 @@
 package com.example.health_care.models;
 
 import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
+import com.example.health_care.models.Drug;
 
 import java.util.ArrayList;
 
@@ -142,6 +143,12 @@ public class Pharmacy {
                 return;
             }
         }
+        throw new PharmacyGetDrugsExceptions("not found drug!!");
+    }
+
+
+    public void addDrugToPharmacy(Drug drug) throws PharmacyGetDrugsExceptions {
+        drugs.add(drug);
         throw new PharmacyGetDrugsExceptions("not found drug!!");
     }
 

@@ -18,10 +18,10 @@
         android:layout_marginBottom="140dp"
         android:background="@drawable/customer_main_page_up" />
 
-    <EditText
+    <TextView
         android:id="@+id/drug_page_name_id"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="-370dp"
         android:hint="drug name"
@@ -30,7 +30,7 @@
         android:textAppearance="@style/secure_your"
         android:textColorHint="#8C8C9C" />
 
-    <EditText
+    <TextView
         android:id="@+id/drug_page_price"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
@@ -39,6 +39,7 @@
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
         android:hint="price"
+        android:textSize="20sp"
         android:textAppearance="@style/secure_your"
         android:textColorHint="#8C8C9C" />
 
@@ -64,7 +65,7 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
-    <EditText
+    <TextView
         android:id="@+id/drug_des_d_id"
         android:layout_width="wrap_content"
         android:layout_height="90dp"

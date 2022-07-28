@@ -25,8 +25,7 @@ public class CustomerMainPageDrugAdapter extends RecyclerView.Adapter<CustomerMa
     ArrayList<Drug> drugs;
     private LayoutInflater inflater;
     OnNoteListenerDrug onNoteListener;
-    boolean showPharmacy = true;
-    private int textSize;
+
 
     public CustomerMainPageDrugAdapter(Context context, ArrayList<Drug> drugs, OnNoteListenerDrug onNoteListener) {
         this.drugs = drugs;
