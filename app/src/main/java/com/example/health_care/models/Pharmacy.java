@@ -1,7 +1,6 @@
 package com.example.health_care.models;
 
 import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
-import com.example.health_care.models.Drug;
 
 import java.util.ArrayList;
 
@@ -126,10 +125,10 @@ public class Pharmacy {
         this.comments = comments;
     }
 
-    public void addDrug(String id) throws PharmacyGetDrugsExceptions {
-        for (Drug drug: Drug.getDrugs()
-             ) {
-            if (drug.getId().equals(id)){
+    public void addDrug(String nameOrId) throws PharmacyGetDrugsExceptions {
+        for (Drug drug : Drug.getDrugs()
+        ) {
+            if (drug.getId().equals(nameOrId) || drug.getName().equals(nameOrId)) {
                 this.drugs.add(drug);
                 return;
             }

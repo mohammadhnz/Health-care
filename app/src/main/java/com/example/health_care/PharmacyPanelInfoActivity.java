@@ -3,130 +3,97 @@ package com.example.health_care;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.health_care.Exceptions.PharmacyGetDrugsExceptions;
-import com.example.health_care.Exceptions.PharmacyLogoutException;
-import com.example.health_care.activities.LoginPage;
+import com.example.health_care.activities.PickDrug;
+import com.example.health_care.adapters.CustomerMainPageDrugAdapter;
+import com.example.health_care.adapters.CustomerMainPagePharmacyAdapter;
+import com.example.health_care.controllers.UserController;
 import com.example.health_care.models.Drug;
+import com.example.health_care.models.PharmacyAdmin;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
-public class PharmacyPanelInfoActivity extends AppCompatActivity implements PharmacyMainPageDrugAdapter.OnNoteListenerDrug {
-    TextView username;
-    TextView fullName;
-    String password;
-    TextView phone;
-    TextView address;
-    TextView pharmacyName;
-    Button logout;
-    Button addDrug;
-    ArrayList<Drug> drugs = new ArrayList<>();
-    RecyclerView recyclerView;
-    PharmacyMainPageDrugAdapter drugAdapter;
-
+public class PharmacyPanelInfoActivity extends AppCompatActivity implements CustomerMainPagePharmacyAdapter.OnNoteListener, CustomerMainPageDrugAdapter.OnNoteListenerDrug {
+    RecyclerView markedPharmacyRecycler;
+    RecyclerView markedDrugRecycler;
+    Button getStartedBtn;
+    Button createDrugBtn;
+    ImageView personalInfoIcon;
+    ImageView settingIcon;
+    PharmacyAdmin pharmacy;
+    CustomerMainPageDrugAdapter drugAdapter;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pharmacy_panel_info);
-        Intent intent = getIntent();
-        username = findViewById(R.id.pharmacy_panel_username_customer);
-        fullName = findViewById(R.id.pharmacy_panel_name_customer);
-        pharmacyName = findViewById(R.id.pharmacy_panel_pharmacy_name_customer);
-        phone = findViewById(R.id.pharmacy_panel_phone_customer);
-        address = findViewById(R.id.pharmacy_panel_address_customer);
-        logout = findViewById(R.id.back_button_pharmacy_panel_customer);
-        password = intent.getStringExtra("password").toString();
-        addDrug = findViewById(R.id.add_drug_button_pharmacy_panel);
-        recyclerView = findViewById(R.id.pharmacy_panel_drugs_customer);
-        username.setText(
-                intent.getStringExtra("username").toString()
-        );
+        setContentView(R.layout.activity_admin_main_page);
 
+        markedPharmacyRecycler = findViewById(R.id.top_recycler_id);
+        getStartedBtn = findViewById(R.id.get_started_button_id);
+        createDrugBtn = findViewById(R.id.create_drug);
+        personalInfoIcon = findViewById(R.id.persona_icon_id);
+        settingIcon = findViewById(R.id.setting_icon_id);
+
+        pharmacy = (PharmacyAdmin) UserController.getInstance().getCurrentUser();
+        Drug drug1 = new Drug("id1", "n1", 1.0, "des 1");
+        Drug drug2 = new Drug("id2", "n2", 2.0, "des 1");
+        Drug drug3 = new Drug("id3", "n3", 3.0, "des 1");
         try {
-            drugs = com.example.health_care.controllers.PharmacyController.getPharmacyDrugs(username.getText().toString(), password);
+            pharmacy.getPharmacy().addDrug(drug1.getId());
+            pharmacy.getPharmacy().addDrug(drug2.getId());
+            pharmacy.getPharmacy().addDrug(drug3.getId());
         } catch (PharmacyGetDrugsExceptions e) {
-            Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
-            toast.show();
-        } catch (NullPointerException e){
-            Log.d("error", "onCreate: salam");
+            e.printStackTrace();
         }
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        drugAdapter = new PharmacyMainPageDrugAdapter(this, drugs, this);
-        recyclerView.setAdapter(drugAdapter);
+        markedPharmacyRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        drugAdapter = new CustomerMainPageDrugAdapter(this, pharmacy.getPharmacy().getDrugs(), this);
+        markedPharmacyRecycler.setAdapter(drugAdapter);
         drugAdapter.notifyDataSetChanged();
-        HashMap<String, String> info = new HashMap<>();
-        try {
-            info = com.example.health_care.controllers.PharmacyController.getUserInfo(intent.getStringExtra("username"), intent.getStringExtra("password"));
-        } catch (PharmacyGetDrugsExceptions pharmacyGetDrugsExceptions) {
-            Toast toast = Toast.makeText(PharmacyPanelInfoActivity.this, "not found", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        username.setText(
-                info.get("username")
-        );
-        fullName.setText(
-                info.get("fullName")
-        );
-
-        address.setText(
-                info.get("address")
-        );
-        pharmacyName.setText(
-                info.get("pharmacyName")
-        );
-        phone.setText(
-                info.get("phone")
-        );
-
-        logout.setOnClickListener(new View.OnClickListener() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        createDrugBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    com.example.health_care.controllers.PharmacyController.logout(username.getText().toString(), password);
-                    Intent intent1 = new Intent(PharmacyPanelInfoActivity.this, LoginPage.class);
-                    startActivity(intent1);
-                } catch (PharmacyLogoutException e) {
-                    Toast toast = Toast.makeText(PharmacyPanelInfoActivity.this, e.getMessage(), Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                Intent intent = new Intent(PharmacyPanelInfoActivity.this, PickDrug.class);
+                startActivity(intent);
             }
         });
-
-        addDrug.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(PharmacyPanelInfoActivity.this, PharmacyDrugsActivity.class);
-                intent1.putExtra("username", username.getText().toString());
-                intent1.putExtra("password",password);
-                startActivity(intent1);
-            }
-        });
-
 
     }
 
     @Override
-    public void OnNoteListenerDrug(ImageView icon, TextView drugName, TextView drugPrice, int position, String id) throws ParseException {
-        //TODO: go to drug detail acivity
-        /*
-        Intent intent = new Intent(PharmacyPanelInfoActivity.this, );
-        intent.putExtra("id", id);
-        startActivity(intent);
-         */
+    protected void onResume() {
+        drugAdapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        UserController.getInstance().logout();
+        this.finish();
+        return true;
+    }
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+    public void OnNoteListener(ImageView icon, TextView pharmacyName, int position) {
+
+    }
+
+    @Override
+    public void OnNoteListenerDrug(ImageView icon, TextView drugName, TextView drugPrice, int position) throws ParseException {
+
     }
 }

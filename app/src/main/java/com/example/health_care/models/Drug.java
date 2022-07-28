@@ -67,6 +67,16 @@ public class Drug {
         return null;
     }
 
+
+    public static Drug findByName(String name) {
+        for (Drug drug : drugs) {
+            if (drug.getName().equals(name)) {
+                return drug;
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<Drug> getDrugs() {
         return drugs;
     }

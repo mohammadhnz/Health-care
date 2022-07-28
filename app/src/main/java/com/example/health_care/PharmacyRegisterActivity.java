@@ -8,18 +8,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.health_care.activities.CustomerMainPage;
-import com.example.health_care.activities.SignInPage;
-import com.example.health_care.controllers.PharmacyController;
-import com.example.health_care.Exceptions.PharmacyAdminRegisterException;
 import com.example.health_care.Exceptions.PharmacyRegisterException;
-import com.example.health_care.models.Admin;
-import com.example.health_care.models.User;
-import com.google.android.gms.maps.MapView;
+import com.example.health_care.controllers.Exceptions.LoginExceptions;
+import com.example.health_care.controllers.Exceptions.LoginOnceException;
+import com.example.health_care.controllers.PharmacyController;
+import com.example.health_care.controllers.UserController;
 
 public class PharmacyRegisterActivity extends AppCompatActivity {
     EditText username;
@@ -67,13 +62,16 @@ public class PharmacyRegisterActivity extends AppCompatActivity {
                             email.getText().toString(),
                             hours.getText().toString()
                     );
+                    UserController.getInstance().login(username.getText().toString(), password.getText().toString());
                     Intent intent = new Intent(PharmacyRegisterActivity.this, PharmacyPanelInfoActivity.class);
-                    intent.putExtra("username", username.getText().toString());
-                    intent.putExtra("password", password.getText().toString());
                     startActivity(intent);
                 } catch (PharmacyRegisterException e) {
                     Toast toast = Toast.makeText(PharmacyRegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG);
                     toast.show();
+                } catch (LoginOnceException e) {
+                    e.printStackTrace();
+                } catch (LoginExceptions loginExceptions) {
+                    loginExceptions.printStackTrace();
                 }
             }
         });
