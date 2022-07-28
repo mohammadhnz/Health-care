@@ -17,6 +17,7 @@
     <string name="get_started">Get \nStarted!</string>
     <string name="pharmacies_">Pharmacies You Marked</string>
     <string name="your_drug_s">Your Drug Search History</string>
+    <string name="latest_drugs">Latest Drugs</string>
     <string name="search">search</string>
     <string name="search_medi">Search Medicine</string>
     <string name="login_successful_message">Successfully login</string>

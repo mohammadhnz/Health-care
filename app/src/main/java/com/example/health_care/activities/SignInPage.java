@@ -1,14 +1,16 @@
 package com.example.health_care.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.health_care.R;
 import com.example.health_care.controllers.Exceptions.LoginExceptions;
@@ -32,14 +34,15 @@ public class SignInPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_page);
 
-        signUsername = findViewById(R.id.sign_username_id);
-        signPassword = findViewById(R.id.sign_password_id);
-        signFullName = findViewById(R.id.sign_name_id);
-        signEmail = findViewById(R.id.sign_email_id);
+        signUsername = findViewById(R.id.sign_username_id_pharmacy);
+        signPassword = findViewById(R.id.sign_password_id_pharmacy);
+        signFullName = findViewById(R.id.sign_name_id_pharmacy);
+        signEmail = findViewById(R.id.sign_email_id_pharmacy);
         validationKey = findViewById(R.id.admin_validation_id);
-        signInButton = findViewById(R.id.sign_in_button_id);
+        signInButton = findViewById(R.id.sign_in_button_id_pharmacy);
         alreadyHavAcc = findViewById(R.id.already_hav);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         alreadyHavAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,8 +71,10 @@ public class SignInPage extends AppCompatActivity {
                                         sLastname
                                 );
                                 createToast(response);
-                                // TODO: change intent to admin activity
-                            }else{
+                                Intent intent = new Intent(SignInPage.this, AdminMainPage.class);
+                                setEmptyTextEditors();
+                                startActivity(intent);
+                            } else {
                                 createToast("incorrect validation key");
                                 setEmptyTextEditors();
                             }
@@ -99,12 +104,16 @@ public class SignInPage extends AppCompatActivity {
             }
         });
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        this.finish();
+        return true;
+    }
 
     private void setEmptyTextEditors() {
-        signUsername = findViewById(R.id.sign_username_id);
-        signEmail = findViewById(R.id.sign_email_id);
-        signPassword = findViewById(R.id.sign_password_id);
-        signFullName = findViewById(R.id.sign_name_id);
+        signUsername = findViewById(R.id.sign_username_id_pharmacy);
+        signEmail = findViewById(R.id.sign_email_id_pharmacy);
+        signPassword = findViewById(R.id.sign_password_id_pharmacy);
+        signFullName = findViewById(R.id.sign_name_id_pharmacy);
         validationKey = findViewById(R.id.admin_validation_id);
         String emptyString = "";
         signUsername.setText(emptyString);

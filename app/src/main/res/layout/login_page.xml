@@ -46,7 +46,8 @@
         android:hint="password"
         android:textAlignment="textStart"
         android:textColor="#204A7B"
-        android:textColorHint="#8C8C9C" />
+        android:textColorHint="#8C8C9C"
+        android:inputType="textPassword" />
 
     <View
         android:layout_width="351dp"

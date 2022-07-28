@@ -55,7 +55,7 @@
         android:textSize="40dp" />
 
     <EditText
-        android:id="@+id/sign_username_id"
+        android:id="@+id/sign_username_id_pharmacy"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="226dp"
@@ -68,7 +68,7 @@
         android:textColorHint="#8C8C9C" />
 
     <EditText
-        android:id="@+id/sign_name_id"
+        android:id="@+id/sign_name_id_pharmacy"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="295dp"
@@ -81,7 +81,7 @@
         android:textColorHint="#8C8C9C" />
 
     <EditText
-        android:id="@+id/sign_email_id"
+        android:id="@+id/sign_email_id_pharmacy"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-350dp"
@@ -106,7 +106,7 @@
         android:textColorHint="#8C8C9C" />
 
     <EditText
-        android:id="@+id/sign_password_id"
+        android:id="@+id/sign_password_id_pharmacy"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="-293dp"
@@ -116,10 +116,11 @@
         android:hint="password"
         android:textAlignment="textStart"
         android:textColor="#204A7B"
-        android:textColorHint="#8C8C9C" />
+        android:textColorHint="#8C8C9C"
+        android:inputType="textPassword"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sign_in_button_id"
+        android:id="@+id/sign_in_button_id_pharmacy"
         android:layout_width="126dp"
         android:layout_height="40dp"
         android:layout_marginStart="-270dp"

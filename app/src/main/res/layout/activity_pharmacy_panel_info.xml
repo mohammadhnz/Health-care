@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        android:paddingStart="5dp"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/pharmacy_panel_username_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:autofillHints=""
+            android:background="@drawable/text_back_3"
+            android:gravity="center"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="#204A7B"
+            android:textColorHint="#8C8C9C"
+            tools:ignore="LabelFor,RtlCompat" />
+
+        <TextView
+            android:id="@+id/pharmacy_panel_pharmacy_name_customer"
+            android:width="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+            android:autofillHints=""
+            android:background="@drawable/text_back_3"
+            android:gravity="center"
+            android:inputType="text"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="#204A7B"
+            android:textColorHint="#8C8C9C"
+            tools:ignore="LabelFor,RtlCompat" />
+
+        <TextView
+            android:id="@+id/pharmacy_panel_name_customer"
+            android:width="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
+            android:autofillHints=""
+            android:background="@drawable/text_back_3"
+            android:gravity="center"
+            android:inputType="text"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="#204A7B"
+            android:textColorHint="#8C8C9C"
+            tools:ignore="LabelFor,RtlCompat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/pharmacy_panel_phone_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/text_back_3"
+            android:text=""
+            android:textColor="#204A7B"
+            android:textColorHint="#8C8C9C" />
+
+        <TextView
+            android:id="@+id/pharmacy_panel_address_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/text_back_3"
+            android:text=""
+            android:textColor="#204A7B"
+            android:textColorHint="#8C8C9C" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pharmacy_panel_drugs_customer"
+        android:layout_width="match_parent"
+        android:layout_height="343dp"
+        android:layout_marginBottom="50dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button_pharmacy_panel_customer"
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_style"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Logout"
+            android:textColor="#FFFFFF" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_drug_button_pharmacy_panel"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_style"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Drug"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

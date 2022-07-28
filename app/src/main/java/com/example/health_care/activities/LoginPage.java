@@ -3,6 +3,7 @@ package com.example.health_care.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.health_care.Exceptions.PharmacyLoginException;
-import com.example.health_care.PharmacyPanelActivity;
+import com.example.health_care.PharmacyPanelInfoActivity;
 import com.example.health_care.PharmacyRegisterActivity;
 import com.example.health_care.R;
 import com.example.health_care.controllers.Exceptions.LoginExceptions;
 import com.example.health_care.controllers.Exceptions.LoginOnceException;
 import com.example.health_care.controllers.PharmacyController;
 import com.example.health_care.controllers.UserController;
+import com.example.health_care.models.Admin;
 import com.example.health_care.models.Pharmacy;
 
 public class LoginPage extends AppCompatActivity {
@@ -37,7 +39,6 @@ public class LoginPage extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button_id);
         dontHave = findViewById(R.id.dont_have);
         dontHavePh = findViewById(R.id.sign_in_as_pharmacy);
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,14 +50,14 @@ public class LoginPage extends AppCompatActivity {
                             PharmacyController.login(username, password);
                             Toast toast = Toast.makeText(LoginPage.this, "login", Toast.LENGTH_SHORT);
                             toast.show();
-                            Intent intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+                            Intent intent = new Intent(LoginPage.this, PharmacyPanelInfoActivity.class);
                             intent.putExtra("username", username);
                             intent.putExtra("password", password);
                             startActivity(intent);
                         } catch (PharmacyLoginException e) {
                             showNotFoundError(e);
-                        }
-                    }else{
+                        }}
+                    else{
                         String loginResultMessage = "";
                         try {
                             UserController.getInstance().login(username, password);
@@ -123,13 +124,13 @@ public class LoginPage extends AppCompatActivity {
 
         }
         else if(userType.equals("Admin")){
-//            intent = new Intent(
-//                    LoginPage.this,
-//                    TeacherPanelPageActivity.class
-//            );
+            intent = new Intent(
+                    LoginPage.this,
+                    AdminMainPage.class
+            );
         }
         else{
-            intent = new Intent(LoginPage.this, PharmacyPanelActivity.class);
+            intent = new Intent(LoginPage.this, PharmacyPanelInfoActivity.class);
             intent.putExtra("username", loginUsername.getText().toString());
             intent.putExtra("password", loginPassword.getText().toString());
         }

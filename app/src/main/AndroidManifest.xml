@@ -23,6 +23,12 @@
             android:name=".activities.UserSettingPage"
             android:exported="false" />
         <activity
+            android:name=".activities.CreateDrugPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminMainPage"
+            android:exported="false" />
+        <activity
             android:name=".activities.DrugPage"
             android:exported="false" />
         <activity
@@ -41,6 +47,12 @@
             android:exported="false" />
         <activity
             android:name=".activities.LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacyPanelInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacyDrugsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -13,6 +13,37 @@ public class Pharmacy {
     private String profPhoto;
     private String backPhoto;
 
+
+    private static ArrayList<Pharmacy> pharmacies = new ArrayList<>();
+    private ArrayList<Drug> drugs = new ArrayList<Drug>();
+    private ArrayList<String> comments = new ArrayList<>();
+
+    public Pharmacy(String name, String location, String phone, String openingHours) {
+        this.name = name;
+        this.location = location;
+        this.phone = phone;
+        this.openingHours = openingHours;
+        pharmacies.add(this);
+    }
+
+    public static ArrayList<Pharmacy> pharmaciesWithThisDrug(String drugId) {
+        ArrayList<Pharmacy> pharmaciesWithDrug = new ArrayList<>();
+        for (Pharmacy pharmacy : pharmacies) {
+            for (Drug drug : pharmacy.drugs) {
+                if (drug.getId().equals(drugId)) {
+                    pharmaciesWithDrug.add(pharmacy);
+                }
+            }
+        }
+        return pharmaciesWithDrug;
+    }
+
+
+    public void addDrugToPharmacy(String id, String name, double price, String description) {
+        drugs.add(new Drug(id, name, price, description));
+    }
+
+
     public String getName() {
         return name;
     }
@@ -85,42 +116,20 @@ public class Pharmacy {
         this.comments = comments;
     }
 
-    private static ArrayList<Pharmacy> pharmacies = new ArrayList<>();
-    private ArrayList<Drug> drugs = new ArrayList<>();
-    private ArrayList<String> comments = new ArrayList<>();
-
-    public Pharmacy(String name, String location, String phone, String openingHours) {
-        this.name = name;
-        this.location = location;
-        this.phone = phone;
-        this.openingHours = openingHours;
-        pharmacies.add(this);
-    }
-
-    public static ArrayList<Pharmacy> pharmaciesWithThisDrug(String drugId) {
-        ArrayList<Pharmacy> pharmaciesWithDrug = new ArrayList<>();
-        for (Pharmacy pharmacy : pharmacies) {
-            for (Drug drug : pharmacy.drugs) {
-                if (drug.getId().equals(drugId)) {
-                    pharmaciesWithDrug.add(pharmacy);
-                }
+    public void addDrug(String id) throws PharmacyGetDrugsExceptions {
+        for (Drug drug: Drug.getDrugs()
+             ) {
+            if (drug.getId().equals(id)){
+                this.drugs.add(drug);
+                return;
             }
         }
-        return pharmaciesWithDrug;
-    }
-
-    public static Pharmacy findByInfo(String name, String address) {
-        for (Pharmacy pharmacy : pharmacies
-        ) {
-            if (pharmacy.getName().equals(name) && pharmacy.getLocation().equals(address)) {
-                return pharmacy;
-            }
-        }
-        return null;
+        throw new PharmacyGetDrugsExceptions("not found drug!!");
     }
 
     public void addDrugToPharmacy(Drug drug){
         drugs.add(drug);
+        throw new PharmacyGetDrugsExceptions("not found drug!!");
     }
 
 }
